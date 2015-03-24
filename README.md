@@ -10,7 +10,6 @@ __Goal__
 *Make it easier, faster and clearer to find, book and signoff availible rooms
 
 
-__
 
 
 

@@ -25,6 +25,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.serviceURL = '<backend server name, eg http://gup-publications-test.ub.gu.se>';
+    //ENV.APP.authenticationBaseURL = '<backend server name, eg http://gup-publications-test.ub.gu.se/session>';
   }
 
   if (environment === 'test') {

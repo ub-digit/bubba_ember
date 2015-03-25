@@ -1,0 +1,36 @@
+<div id="filter" class="row">
+	<!-- pick library --> 
+	<div class="col-xs-12 col-md-6">
+		<label>{{t 'filter.dropdown.libraries.prompt'}}</label>
+		{{view Ember.Select class="form-control"
+	       content=controllers.application.libraries
+	       optionValuePath="content.sigl"
+	       optionLabelPath="content.title"
+	       value=controllers.application.selectedLibrary
+	       prompt=(t 'filter.dropdown.libraries.prompt')
+	       
+	    }}
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+		<label>{{t 'filter.dropdown.dates.prompt'}}</label>
+		{{view Ember.Select class="form-control"
+	       content=controllers.application.dates
+	       optionValuePath="content.id"
+	       optionLabelPath="content.title"
+	       value=controllers.application.selectedDate
+	    }}
+	</div>
+</div>
+
+
+
+<div class="row">
+	<div class="col-xs-12">
+		{{#if filter.library}}
+			{{list-of-rooms rooms=model}}
+		{{else}}
+			{{t 'filter.missingLibraryInFilter'}}
+		{{/if}}
+	</div>
+</div>

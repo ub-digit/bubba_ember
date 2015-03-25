@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Object.extend({
     adapter: function() {
-	return this.container.lookup('adapter:gup');
+	return this.container.lookup('adapter:bubba');
     },
     id: function(id_or_params) {
 	if(typeof(id_or_params) === "number" || typeof(id_or_params) === "string") {

@@ -2,14 +2,15 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	needs: ['application'],
-	queryParams: ['controllers.application.selectedDate', 'controllers.application.selectedLibrary'],
+	queryParams: ['selectedLibrary', 'selectedDate'],
+	showPleaseSelectPrompt: function() {
+		if ((this.get("selectedLibrary") === null) || (this.get("selectedLibrary") === "null")) {
+			return true;
+		}	
+		else {
+			return false;
+		}
+	}.property('selectedLibrary'),
 
-	filter: function() {
-		var filterObj = {};
-		filterObj.library = this.get("controllers.application.selectedLibrary");
-		filterObj.date	= this.get("controllers.application.selectedDate");
-		return filterObj;
-	}.property('controllers.application.selectedDate', 'controllers.application.selectedLibrary'),
- 
-
+ 	
 });

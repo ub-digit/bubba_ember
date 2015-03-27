@@ -1,5 +1,7 @@
+
 body {
 	margin-top: 40px;
+	overflow-y: scroll;
 }
 
 /* main navigaton */
@@ -27,5 +29,89 @@ nav {
 	select {
 		margin-bottom: 20px;
 	}
-
 }
+
+
+
+.list-rooms-header {
+	margin-bottom: 10px;
+	text-align: center;
+	font-size: 1em;
+	font-weight: bolder;
+}
+
+.list-rooms {
+	>li {
+		@media (min-width: @screen-sm-min) {
+			&:hover {
+				transition:.2s;
+				.arrow {
+					color: @gray-dark !important;
+					transition: .9s;
+				}
+			}
+		}
+		border-bottom: 1px solid #ccc;
+		padding: 5px 5px;
+		&:first-child {
+			border-top: 1px solid #ccc;
+    	}
+
+		#room-component-item {
+			cursor: pointer;
+			.room-title {
+				font-size: 1em;
+				
+			}
+			.room-meta {
+				font-size: .8em;
+			}
+
+			.arrow {
+				margin-top: 30px;
+				margin-right: 20px;
+				color: #ccc;
+				
+			}
+	    	.room-availible-intervals-list {
+	    		margin-top: 10px;
+	    		li {
+	    			text-align: center;
+	    			width: 25px;
+	    			height: 30px;
+	    			display: inline-block;
+	    			float:left;
+	    			margin-right: 20px;
+	    			font-size:.6em;
+	    			.circle {
+	    				&.\31 {
+	    					background: @brand-success;
+	    				}
+	    				&.\32 {
+	    					background: @brand-danger;
+	    				}
+	    				&.\33 {
+	    					background: @brand-warning;
+	    				}
+	    				&.\34 {
+	    					background: @brand-danger;
+	    				}
+	    				&.\35 {
+	    					background: @brand-danger;
+	    				}
+	    				margin: 0 auto;
+	    				margin-bottom: 5px;
+	    				display: block;
+	    				width: 15px;
+	    				height: 15px;
+	    				border: 1px solid #ccc;
+	    				border-radius: 50%;
+	    			}
+
+	    		}
+	    	}
+		}
+
+	}
+}
+

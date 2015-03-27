@@ -3,10 +3,8 @@ import ENV from '../config/environment';
 
 export default Ember.Object.extend({
     endpoints: {
-    person: 		   {path: 'people', plural:'people'},
-	publication:	  { path: 'publications'	  },
-	publication_type: { path: 'publication_types' },
-	draft: { path: 'publications?drafts=true',plural: 'publications' }
+    location: 		   {path: 'locations'},
+	booking_object:	  { path: 'booking_objects'},
     },
     findOne: function(name, id, params) {
 	var that = this;
@@ -30,7 +28,6 @@ export default Ember.Object.extend({
 	    method: 'get',
 	    crossDomain: true,
 	    type: 'json',
-		headers: that.sessionHeaders(),
 
 	});
     },
@@ -44,7 +41,6 @@ export default Ember.Object.extend({
 	    contentType: 'application/json',
 	    dataType: 'json',
 	    data: JSON.stringify(data),
-	    headers: that.sessionHeaders(),
 	});
     },
     sendDelete: function(url) {
@@ -55,7 +51,6 @@ export default Ember.Object.extend({
 	    method: 'delete',
 	    crossDomain: true,
 	    type: 'json',
-	    headers: that.sessionHeaders(),
 	});
     },
     endpoint: function(name) {

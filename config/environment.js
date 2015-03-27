@@ -38,6 +38,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.serviceURL = 'https://bubba-server-test.ub.gu.se'; // <backend server name, eg http://gup-publications-test.ub.gu.se>';
   }
 
   if (environment === 'test') {

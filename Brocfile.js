@@ -21,6 +21,10 @@ var app = new EmberApp({
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
+app.import("bower_components/moment/min/moment-with-locales.min.js");
+app.import("bower_components/moment/locale/sv.js");
+app.import("bower_components/moment/locale/en-gb.js");
+
 
 app.import("bower_components/components-font-awesome/css/font-awesome.min.css");
 app.import("bower_components/components-font-awesome/fonts/fontawesome-webfont.eot", { destDir: "fonts" });

@@ -1,7 +1,29 @@
-
-<div class="name-of-room">
-	{{room.title}}
-</div>
-<div class="room-meta">
-	{{item.seats}}
+<div class="row" id="room-component-item">
+	<div class="col-xs-10">
+		<div class="room-title">
+			{{room.name}}
+		</div>
+		<div class="room-meta">
+			{{room.seats}} {{t 'room.meta.seats'}}
+			{{#if room.has_computer}}
+				, {{t 'room.meta.computer'}}
+			{{/if}}
+			{{#if room.has_whiteboard}}
+				, {{t 'room.meta.whiteboard'}}
+			{{/if}}
+		</div>
+		<div class="room-availible-intervals">
+			<ul class="room-availible-intervals-list list-unstyled">
+				{{#each item in room.bookings}}
+					<li>
+						<span {{bind-attr class=":circle item.status"}}></span>
+						{{item.pass_start}}
+					</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+	<div class="col-xs-2">
+		<div class="arrow pull-right"><i class="fa fa-chevron-right"></i></div>
+	</div>
 </div>

@@ -3,24 +3,34 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 	model: function() {
 		// get list of libraries
-		return Ember.RSVP.hash({
-			libraries: 	[
-				{sigl: 'hum', title: 'Humanistiska biblioteket'},
-				{sigl: 'gpec', title: 'Pedagogiska biblioteket'},
-				{sigl: 'ek', title: 'Ekonomiska biblioteket'},
-			],
-			dates: [
-				{id: "0", title: 'Idag'},
-				{id: "1", title: 'Imorgon'},
-			]
-		});	
+		return this.store.find('location');	
 	},
 
-	setupController: function(controller, models) {
-		controller.set("libraries", models.libraries);
-		controller.set("dates", models.dates);
-		controller.set("selectedLibrary", null);
-		controller.set("selectedDate", "1");
+	generateDates: function() {
+		var dates = []; 
 
+		var application = this.container.lookup('application:main');
+		var local = application.get("locale");
+		if (!local) {
+			local = application.get('defaultLocale');
+		}
+		for (var i = 0; i < 7; i++) {
+			 var date = moment().add(i, 'days');
+			 var dateStr = date.locale(local).format("dddd, Do MMM");
+			 var t = this.container.lookup('utils:t');
+			 if (i === 0) {
+			 	dateStr = t('filter.dateStrings.today');
+			 }
+			 else if (i === 1) {
+			 	dateStr = t('filter.dateStrings.tomorrow');
+			 }
+			 dates.push({'id': i.toString(), 'title': dateStr});
+		}
+		return dates;
+	},
+
+	setupController: function(controller, model) {
+		controller.set("libraries", model);
+		controller.set("dates", this.generateDates());
 	}
 });

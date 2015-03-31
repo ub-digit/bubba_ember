@@ -1,0 +1,61 @@
+<div class="booking-item row" {{action 'toggleExpanded'}}>
+	<div class="col-xs-10">
+		<div class="status">
+			<span {{bind-attr class=":circle room.status"}}></span>
+		</div>
+		<div class="interval">
+			{{room.pass_start}} - {{room.pass_stop}}
+		</div>
+		<div class="status-in-text">
+			{{#if room.booked}}
+				Bokat
+			{{/if}}
+		</div>
+	</div>
+	<div class="col-xs-2">
+		<div class="indicator pull-right">
+			{{#if room.isExpanded}}
+				<i class="fa fa-chevron-down rotate"></i>
+			{{else}}
+				<i class="fa fa-chevron-down"></i>
+			{{/if}}
+		</div>
+	</div>
+</div>
+
+{{#if room.isExpanded}}
+	<div class="row footer">
+		{{#if error}} 
+			showError
+		{{else}}
+			{{#if showReciept}}
+
+				Detta pass är nu bokat! 
+				<i class="fa fa-check"></i>
+			{{else}}
+				<div class="col-xs-12">
+					<form>
+						<div class="header">
+							Boka det här passet
+						</div>
+						<div class="form-group">
+							<label class="sr-only">Lånekortsnummer</label>
+							{{input type="text" class="form-control" placeholder="Lånekortsnummer" value=librarycardNumber}}
+						</div>
+						<div class="form-group">
+							<label class="sr-only">Personnummer</label>
+							{{input type="text" class="form-control" placeholder="Personnummer" value=personalSecurityNumber}}
+						</div>
+						<div class="form-group">
+							<label class="sr-only">Signatur</label>
+							{{input type="text" class="form-control" placeholder="Signatur" value=signature}}
+						</div>
+						<div class="submit-btn form-group">
+							<button type="submit" {{action 'executeBooking' room.id}}class="btn btn-primary">Boka</button>
+						</div>
+					</form>
+				</div>
+			{{/if}}
+		{{/if}}
+	</div>
+{{/if}}

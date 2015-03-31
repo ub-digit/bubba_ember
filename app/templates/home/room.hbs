@@ -1,0 +1,42 @@
+<div id="room-single-view">
+	<nav class="go-back-btn row">
+		<div class="col-xs-12">
+			{{#link-to 'home.index'}}
+				<i class="fa fa-chevron-left"></i> Tillbaka
+			{{/link-to}}
+		</div>
+	</nav>
+
+	<div class="row">
+		<div class="room-info col-xs-12">
+			<div class="room-title">
+				{{model.place}} - {{model.name}}
+			</div>
+			<div class="room-meta">
+				{{model.seats}} {{t 'room.meta.seats'}}
+				{{#if model.has_computer}}
+					, {{t 'room.meta.computer'}}
+				{{/if}}
+				{{#if model.has_whiteboard}}
+					, {{t 'room.meta.whiteboard'}}
+				{{/if}}
+			</div>
+			<div class="date">
+				{{getDate}}
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-xs-12">
+		<ul class="list-bookings list-unstyled">
+			{{#each item in model.bookings}}
+				<li>
+					{{booking-item room=item closeAll='closeAllOpen'}}
+				</li>
+			{{/each}}
+		</ul>
+		</div>
+	</div>
+</div>

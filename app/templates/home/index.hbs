@@ -28,7 +28,7 @@
 <div class="row">
 	<div class="col-xs-12">
 		{{#unless showPleaseSelectPrompt}}
-			{{list-of-rooms rooms=model}}
+			{{list-of-rooms rooms=model selectedDay=selectedDate}}
 		{{else}}
 			{{t 'filter.missingLibraryInFilter'}}
 		{{/unless}}

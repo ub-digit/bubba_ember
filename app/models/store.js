@@ -31,11 +31,9 @@ export default Ember.Object.extend({
 	}
     },
     save: function(name, model, params) {
-	if(model.pubid) {
-    console.log('model.pubid:'+ model.pubid);
-	    return this.adapter().saveUpdate(name, model.pubid, model);
+	if(model.id ) {
+	    return this.adapter().saveUpdate(name, model.id, model, params);
 	} else {
-    console.log('no model.pubid');
 	    return this.adapter().saveCreate(name, model, params);
 	}
     },

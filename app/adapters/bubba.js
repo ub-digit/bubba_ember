@@ -5,6 +5,7 @@ export default Ember.Object.extend({
     endpoints: {
     location: 		   {path: 'locations'},
 	booking_object:	  { path: 'booking_objects'},
+	booking:	  { path: 'bookings'},
     },
     findOne: function(name, id, params) {
 	var that = this;
@@ -103,9 +104,9 @@ export default Ember.Object.extend({
     destroy: function(name, id) {
 	return this.sendDelete(this.urlOne(name, id));
     },
-    saveUpdate: function(name, id, data) {
+    saveUpdate: function(name, id, data, params) {
 	var that = this;
-	var dataObject = {};
+	var dataObject = params || {};
 	dataObject[name] = data;
 	return this.send(this.urlOne(name, id), 'put', dataObject)
 	    .then(function(data) {

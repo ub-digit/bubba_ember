@@ -21,8 +21,8 @@ export default Ember.Route.extend({
 			return this.store.find('booking_object', filter);
 		}
 		else {
-			this.controllerFor('index').set("selectedLibrary", null);
-			this.controllerFor('index').set("selectedDate", "0");
+			this.controllerFor('home.index').set("selectedLibrary", null);
+			this.controllerFor('home.index').set("selectedDate", "0");
 			return null;
 		}		
 	},

@@ -11,6 +11,4 @@ export default Ember.Controller.extend({
 			return false;
 		}
 	}.property('selectedLibrary'),
-
- 	
 });

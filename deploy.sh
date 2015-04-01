@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e # Makes sure that script exits on any error
-# Script for deploying an Ember application securely to a server
+# -------------------------------------------------------------- #
+# Script for deploying an Ember application securely to a server #
+# deploy.sh takes care of the actual deploy.                     #
+# Preconditions: version, git or ember stuff must be ready       #
+# -------------------------------------------------------------- #
 appname='bubba' # Name used in directories
 app_domain_name='bubba' # Name used in dns
 local_app_location='.' # must be set for script to work

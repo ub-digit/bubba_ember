@@ -28,7 +28,23 @@ export default {
   			whiteboard: 'whiteboard'
   		},
   		listOfRoomsHeader: 'Availible rooms:',
+  	},
+  	backToListOfRoomsNav: 'Back to list',
+  	closeButton: 'Close',
+
+  	statusStrings: {
+  		booked: 'Booked',
+  		availible: 'Availible'
+  	},
+
+  	error: {
+  		passUnavail: 'This booking is no longer availible. Someone got to it before you. Sorry!',
+  		passLimitError: 'You have overstepped your availible booking-ratio'
+  	},
+  	success: {
+  		bookSuccess: 'This slot has now been booked for you'
   	}
+
 
 
 };

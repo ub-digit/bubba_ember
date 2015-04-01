@@ -1,4 +1,4 @@
-<div class="booking-item row" {{action 'toggleExpanded'}}>
+<div {{bind-attr id=room.id}} class="booking-item row" {{action 'toggleExpanded'}}>
 	<div class="col-xs-10">
 		<div class="status">
 			<span {{bind-attr class=":circle room.status"}}></span>
@@ -8,16 +8,16 @@
 		</div>
 		<div class="status-in-text">
 			{{#if room.booked}}
-				Bokat
+				{{t 'statusStrings.booked'}}
 			{{else}}
-				Ledigt
+				{{t 'statusStrings.availible'}}
 			{{/if}}
 		</div>
 	</div>
 	<div class="col-xs-2">
 		{{#unless room.booked}}
 			<div class="indicator pull-right">
-				{{#if room.isExpanded}}
+				{{#if isExpanded}}
 					<i class="fa fa-chevron-down rotate"></i>
 				{{else}}
 					<i class="fa fa-chevron-down"></i>
@@ -32,21 +32,35 @@
 		{{#unless isFormPresent}}
 			<div class="col-xs-12 col-md-6 col-md-offset-3">
 				{{#if error.pass_unavail_error}}
-					pass unavil
+					<div class="alert alert-warning" role="alert">
+					  <span class="sr-only">Error:</span>
+					  <i class="fa fa-exclamation-triangle"></i> {{t 'error.passUnavail'}} 
+					</div>
+					<div class="btn-area form-group">
+						<button class="btn btn-default" {{action 'toggleExpanded'}}>Close</button>
+					</div>
+					
 				{{/if}}
 				{{#if error.pass_limit_error}}
 					<div class="alert alert-danger" role="alert">
-					  <span class="sr-only">Fel:</span>
-					  <i class="fa fa-exclamation-triangle"></i> Du har tyvärr överskridit tillåtet antal pass för idag. 
+					  <span class="sr-only">Error:</span>
+					  <i class="fa fa-exclamation-triangle"></i> {{t 'error.passLimitError'}}
 					</div>
-					
+					<div class="btn-area form-group">
+						<button class="btn btn-default" {{action 'toggleExpanded'}}>Close</button>
+					</div>
 				{{/if}}
 			</div>
 		{{else}}
 			{{#if showReciept}}
-				<div class="col-xs-12 col-md-6 col-md-offset-3">
-					Detta pass är nu bokat! 
-					<i class="fa fa-check"></i>
+				<div class="center-content col-xs-12 col-md-6 col-md-offset-3">
+					<div>{{t 'success.bookSuccess'}}</div>
+					<div class="book-feedback-graphics">
+						<i class="fa fa-check"></i>
+					</div>
+					<div class="btn-area form-group">
+						<button class="btn btn-default" {{action 'toggleExpanded'}}>Close</button>
+					</div>
 				</div>
 			{{else}}
 				<div class="col-xs-12 col-md-6 col-md-offset-3">
@@ -56,7 +70,7 @@
 						</div>
 						<div class="form-group">
 							<label class="sr-only">Lånekortsnummer</label>
-							{{input type="text" class="form-control" placeholder="Lånekortsnummer" value=librarycardNumber}}
+							{{input type="text" class="form-control cardnumber" placeholder="Lånekortsnummer" value=librarycardNumber}}
 						</div>
 						<div class="form-group">
 							<label class="sr-only">Personnummer</label>
@@ -72,7 +86,7 @@
 							  <i class="fa fa-exclamation-triangle"></i> Kontrollera uppgifterna!
 							</div>
 						{{/if}}
-						<div class="submit-btn form-group">
+						<div class="btn-area form-group">
 							<button id="sumbit-booking-btn" type="submit" {{action 'executeBooking' room.id}} {{bind-attr class=":btn :btn-primary isDisabled:disabled:enabled"}}>Boka</button>
 						</div>
 					</form>

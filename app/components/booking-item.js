@@ -53,6 +53,9 @@ export default Ember.Component.extend({
 
 	actions: {
 		toggleExpanded: function() {
+			if (this.get("room.booked")) {
+				return;
+			}
 			if (this.get("isExpanded")) {
 				this.set("isExpandedId", null);
 			}
@@ -68,6 +71,11 @@ export default Ember.Component.extend({
 				this.set("error.pass_limit_error", null);
 				this.set("error.auth_error", null);
 				this.set("isFormPresent", true);
+				var that = this;
+				Ember.run.later(function(){
+					Ember.$(window).scrollTo("#" + that.get("room.id"), 500);
+					that.$('.cardnumber').focus();
+				});
 			}
 		},
 

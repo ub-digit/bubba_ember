@@ -6,6 +6,12 @@ var app = new EmberApp({
  vendorFiles: {
     'handlebars.js': null
   }
+
+storeConfigInMeta: false,
+	fingerprint: {
+		exclude: ['js', 'css']
+	}
+
 });
 
 // Use `app.import` to add additional libraries to the generated

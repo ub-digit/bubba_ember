@@ -3,9 +3,9 @@
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 var app = new EmberApp({
- vendorFiles: {
-    'handlebars.js': null
-  }
+	 vendorFiles: {
+	    'handlebars.js': null
+	  },
 
 	storeConfigInMeta: false,
 	fingerprint: {

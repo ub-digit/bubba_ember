@@ -7,7 +7,7 @@ var app = new EmberApp({
     'handlebars.js': null
   }
 
-storeConfigInMeta: false,
+	storeConfigInMeta: false,
 	fingerprint: {
 		exclude: ['js', 'css']
 	}

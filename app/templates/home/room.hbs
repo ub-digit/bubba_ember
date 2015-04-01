@@ -33,7 +33,7 @@
 		<ul class="list-bookings list-unstyled">
 			{{#each item in model.bookings}}
 				<li>
-					{{booking-item room=item closeAll='closeAllOpen'}}
+					{{booking-item room=item closeAll='closeAllOpen' isExpandedId=isExpandedId}}
 				</li>
 			{{/each}}
 		</ul>

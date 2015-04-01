@@ -12,18 +12,16 @@ export default Ember.Object.extend({
 	return this.fetch(this.urlOne(name, id, params))
 	    .then(function(data) {
 		return that.extractOne(name, data);
-	    });
+	    },  this.extractErrors);
     },
     findMany: function(name, params) {
 	var that = this;
 	return this.fetch(this.urlMany(name, params))
 	    .then(function(data) {
 		return that.extractMany(name, data);
-	    });
+	    },  this.extractErrors);
     },
     fetch: function(url) {
-	var headers = {};
-	var that = this;
 	return Ember.$.ajax({
 	    url: url,
 	    method: 'get',
@@ -33,8 +31,6 @@ export default Ember.Object.extend({
 	});
     },
     send: function(url, method, data) {
-	var headers = {};
-	var that = this;
 	return Ember.$.ajax({
 	    url: url,
 	    method: method,
@@ -45,8 +41,6 @@ export default Ember.Object.extend({
 	});
     },
     sendDelete: function(url) {
-	var headers = {};
-	var that = this;
 	return Ember.$.ajax({
 	    url: url,
 	    method: 'delete',
@@ -93,12 +87,14 @@ export default Ember.Object.extend({
     extractOne: function(name, data) {
 	var singularName = this.singular(name);
 	if (data.meta) { data[singularName].meta = data.meta;}
+	data[singularName].error = this.extractErrors(data);
 	return data[singularName];
     },
     extractMany: function(name, data) {
 	var pluralName = this.plural(name);
 	var list = data[pluralName];
 	if (data.meta){list.meta = data.meta;}
+	list.error = this.extractErrors(data);
 	return list;
     },
     destroy: function(name, id) {
@@ -111,7 +107,7 @@ export default Ember.Object.extend({
 	return this.send(this.urlOne(name, id), 'put', dataObject)
 	    .then(function(data) {
 		return that.extractOne(name, data);
-	    });
+	    },  this.extractErrors);
     },
     saveCreate: function(name, data, params) {
 	var that = this;
@@ -120,7 +116,19 @@ export default Ember.Object.extend({
 	return this.send(this.urlMany(name), 'post', dataObject)
 	    .then(function(data) {
 		return that.extractOne(name, data);
-	    });
+	    }, this.extractErrors);
     },
+
+	extractErrors: function(reason_or_data) {
+		if(reason_or_data.responseJSON) {
+		  return {
+		    error: reason_or_data.responseJSON.error,
+		    status: reason_or_data.status
+		  };
+		} else {
+		  return reason_or_data.error;
+		}
+		return undefined;
+	},
 });
 

@@ -8,7 +8,7 @@ export default Ember.Route.extend({
 		controller.set("model", model);
 		var bookings = [];
 		model.bookings.forEach(function(item) {
-			bookings.push(Ember.Object.create(item));
+			bookings.push(item);
 		});
 		model.bookings = bookings;
 		controller.set("model", model);

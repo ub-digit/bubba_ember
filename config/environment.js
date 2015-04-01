@@ -54,7 +54,13 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.APP.serviceURL = 'https://bubba-server.ub.gu.se';      // backend server name
+  }
+  if (environment === 'production-demo') {
+    ENV.APP.serviceURL = 'https://bubba-server-demo.ub.gu.se'; // backend server name
+  }
+  if (environment === 'production-test') {
+    ENV.APP.serviceURL = 'https://bubba-server-test.ub.gu.se'; // backend server name
   }
 
   return ENV;

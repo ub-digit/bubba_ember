@@ -6,14 +6,14 @@ export default {
 	filter: {
 		dropdown: {
 			libraries: {
-				prompt: 'Choose a library'
+				prompt: 'Välj bibliotek'
 			},
 			dates: {
-				prompt: 'Choose a date'
+				prompt: 'Välj dag'
 			}
 		},
-		missingLibraryInFilter: 'Please choose a library',
-		noResultForActiveFilter: 'No rooms availible',
+		missingLibraryInFilter: 'Var vänlig välj bibliotek',
+		noResultForActiveFilter: 'Inga rum tillgängliga',
 
 		dateStrings: {
 			today: 'Today',

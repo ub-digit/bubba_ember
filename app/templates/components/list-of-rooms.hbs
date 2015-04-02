@@ -6,6 +6,8 @@
 			<li>
 				{{room-item room=item selectedDay=selectedDay}}
 			</li>
+			{{else}}
+				<p>{{t 'filter.noResultForActiveFilter'}}</p>
 		{{/each}}
 	</ul>
 {{/if}}

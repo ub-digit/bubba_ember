@@ -35,6 +35,8 @@
 				<li>
 					{{booking-item room=item closeAll='closeAllOpen' isExpandedId=isExpandedId}}
 				</li>
+			{{else}}
+				<p>{{t 'filter.noResultForActiveFilter'}}</p>
 			{{/each}}
 		</ul>
 		</div>

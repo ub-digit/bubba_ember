@@ -6,14 +6,14 @@ export default {
 	filter: {
 		dropdown: {
 			libraries: {
-				prompt: 'Choose a library'
+				prompt: 'Select a library'
 			},
 			dates: {
-				prompt: 'Choose a date'
+				prompt: 'Select a date'
 			}
 		},
-		missingLibraryInFilter: 'Please choose a library',
-		noResultForActiveFilter: 'No rooms availible',
+		missingLibraryInFilter: 'Please select a library',
+		noResultForActiveFilter: 'No rooms available',
 
 		dateStrings: {
 			today: 'Today',
@@ -27,14 +27,14 @@ export default {
   			computer: 'computer',
   			whiteboard: 'whiteboard'
   		},
-  		listOfRoomsHeader: 'Availible rooms:',
+  		listOfRoomsHeader: 'available rooms:',
   	},
   	backToListOfRoomsNav: 'Back to list of rooms',
   	closeButton: 'Close',
 
   	statusStrings: {
   		booked: 'Booked',
-  		availible: 'Availible'
+  		availible: 'Available'
   	},
 
   	loginForm: {

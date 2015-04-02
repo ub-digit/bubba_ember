@@ -53,7 +53,7 @@ export default Ember.Component.extend({
 
 	actions: {
 		toggleExpanded: function() {
-			if (this.get("room.booked")) {
+			if (this.get("room.booked") && !this.get("isExpanded")) {
 				return;
 			}
 			if (this.get("isExpanded")) {

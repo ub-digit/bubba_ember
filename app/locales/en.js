@@ -29,7 +29,7 @@ export default {
   		},
   		listOfRoomsHeader: 'Availible rooms:',
   	},
-  	backToListOfRoomsNav: 'Back to list',
+  	backToListOfRoomsNav: 'Back to list of rooms',
   	closeButton: 'Close',
 
   	statusStrings: {
@@ -37,9 +37,18 @@ export default {
   		availible: 'Availible'
   	},
 
+  	loginForm: {
+  		header: 'Book this location',
+  		patrionCardNumber: 'Cardnumber',
+  		personalSecurityNumber: 'Personal security number',
+  		signature: 'Signature',
+  		bookButton: 'Book',
+  	},	
+
   	error: {
   		passUnavail: 'This booking is no longer availible. Someone got to it before you. Sorry!',
-  		passLimitError: 'You have overstepped your availible booking-ratio'
+  		passLimitError: 'You have overstepped your availible booking-ratio',
+  		checkLoginInformation: 'Kontrollera uppgifterna!',
   	},
   	success: {
   		bookSuccess: 'This slot has now been booked for you'

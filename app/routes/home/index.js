@@ -7,10 +7,7 @@ export default Ember.Route.extend(ResetScroll,{
 		selectedLibrary: { refreshModel: true },
 		selectedDate: { refreshModel: true }
     },
-	/*refreshData: function() {
-		var temp = this.store('booking_object', filter);
-		this.get("model", temp);
-	},*/
+
 	model: function(params) {
 		// get list of librarie
 		var filter = {};

@@ -1,11 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	user: {
-		librarycardNumber: null,
-		personalSecurityNumber: null,
-		signature: null
-	},
+	needs: ['application'],
 
 	error: {
 		'pass_limit_error': false,
@@ -25,9 +21,9 @@ export default Ember.Component.extend({
 
 	saveToLocalStorage: function() {
 		if(typeof(Storage) !== "undefined") {
-			localStorage.setItem("librarycardNumber", this.get("librarycardNumber"));
-			localStorage.setItem("personalSecurityNumber", this.get("personalSecurityNumber"));			
-			localStorage.setItem("signature", this.get("signature"));
+			sessionStorage.setItem("librarycardNumber", this.get("user.librarycardNumber"));
+			sessionStorage.setItem("personalSecurityNumber", this.get("user.personalSecurityNumber"));			
+			sessionStorage.setItem("signature", this.get("user.signature"));
 		} else {
 			/// dont save it. 
 		}
@@ -43,13 +39,13 @@ export default Ember.Component.extend({
 	},
 
 	isDisabled: function() {
-		if (this.get("librarycardNumber") && this.containsNotOnlySpaces(this.get("librarycardNumber")) && this.get("personalSecurityNumber") && this.containsNotOnlySpaces(this.get("personalSecurityNumber")) && this.get("signature") && this.containsNotOnlySpaces(this.get("signature"))) {
+		if (this.get("user.librarycardNumber") && this.containsNotOnlySpaces(this.get("user.librarycardNumber")) && this.get("user.personalSecurityNumber") && this.containsNotOnlySpaces(this.get("user.personalSecurityNumber")) && this.get("user.signature") && this.containsNotOnlySpaces(this.get("user.signature"))) {
 			return false;
 		}
 		else {
 			return true;
 		}
-	}.property('librarycardNumber','personalSecurityNumber','signature'),
+	}.property('user.librarycardNumber','user.personalSecurityNumber','user.signature'),
 
 	actions: {
 		toggleExpanded: function() {
@@ -62,9 +58,9 @@ export default Ember.Component.extend({
 			else {
 				this.set("isExpandedId", this.get("room.id"));
 				if(typeof(Storage) !== "undefined") {
-					this.set("librarycardNumber", localStorage.getItem("librarycardNumber"));
-					this.set("personalSecurityNumber",localStorage.getItem("personalSecurityNumber"));			
-					this.set("signature", localStorage.getItem("signature"));
+					this.set("user.librarycardNumber", sessionStorage.getItem("librarycardNumber"));
+					this.set("user.personalSecurityNumber",sessionStorage.getItem("personalSecurityNumber"));			
+					this.set("user.signature", sessionStorage.getItem("signature"));
 				}
 				// reset error message 
 				this.set("error.pass_unavail_error", null);
@@ -105,7 +101,7 @@ export default Ember.Component.extend({
 				}
 
 			};
-			this.store.save('booking',{id: id} , {'username': this.get("librarycardNumber"), 'password': this.get("personalSecurityNumber"), 'signature': this.get("signature"), 'cmd': 'book'}).then(successHandler, errorHandler);
+			this.store.save('booking',{id: id} , {'username': this.get("user.librarycardNumber"), 'password': this.get("user.personalSecurityNumber"), 'signature': this.get("user.signature"), 'cmd': 'book'}).then(successHandler, errorHandler);
 		}
 	}
 });

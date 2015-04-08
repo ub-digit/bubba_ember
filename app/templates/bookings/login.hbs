@@ -1,0 +1,26 @@
+<div class="row">
+	<div class="col-xs-12 col-md-6 col-md-offset-3">
+		<h2>Logga in</h2>
+		<form class="login-form">
+			<div class="form-group">
+				<label>{{t 'loginForm.patrionCardNumber'}}</label>
+				{{input type="text" class="form-control" placeholder=(t 'loginForm.patrionCardNumber') value=librarycardNumber}}
+			</div>
+			<div class="form-group">
+				<label>{{t 'loginForm.personalSecurityNumber'}}</label>
+				{{input type='password' class="form-control" placeholder=(t 'loginForm.personalSecurityNumber') value=personalSecurityNumber}}
+			</div>
+			<div class="form-group">
+				{{#if error}}
+					<div class="alert alert-danger" role="alert">
+					  <span class="sr-only">Fel:</span>
+					  <i class="fa fa-exclamation-triangle"></i> {{t 'error.checkLoginInformation'}}							
+					</div>
+				{{/if}}
+			</div>
+			<div class="btn-area form-group">
+				<button id="sumbit-booking-btn" type="submit" {{action 'executeLogin'}} {{bind-attr class=":btn :btn-primary isDisabled:disabled:enabled"}}>{{t 'loginForm.okButton'}}</button>
+			</div>
+		</form>
+	</div>
+</div> <!-- row end --> 

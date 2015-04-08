@@ -1,7 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-
+	user: {
+		librarycardNumber: null,
+		personalSecurityNumber: null,
+		signature: null
+	},
 	librariesSorted: function() {
 		var application = this.container.lookup('application:main');
 		var local = application.get("locale");

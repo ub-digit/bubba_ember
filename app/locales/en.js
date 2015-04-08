@@ -43,6 +43,7 @@ export default {
   		personalSecurityNumber: 'Personal security number',
   		signature: 'Signature',
   		bookButton: 'Book',
+      okButton: 'Okaj',
   	},	
 
   	error: {

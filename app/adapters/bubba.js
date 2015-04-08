@@ -6,6 +6,7 @@ export default Ember.Object.extend({
     location: 		   {path: 'locations'},
 	booking_object:	  { path: 'booking_objects'},
 	booking:	  { path: 'bookings'},
+	auth: 	{path : 'users/auth'},
     },
     findOne: function(name, id, params) {
 	var that = this;

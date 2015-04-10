@@ -33,7 +33,7 @@ nav {
 
 
 
-.list-rooms-header {
+.header {
 	margin-bottom: 10px;
 	text-align: center;
 	font-size: 1em;
@@ -134,73 +134,111 @@ nav {
 		}
 	}
 	.list-bookings {
-		>li {
-			float: left;
-			width: 100%;
-			border-bottom: 1px solid #ccc;
-			padding: 5px 5px;
-			&:first-child {
-				border-top: 1px solid #ccc;
+
+    	.booking-item {
+	    	.status {
+	    		.circle {
+	    			margin: 0;
+	    		}
+	    		float: left;
+	    		margin-right: 10px;
 	    	}
-
-
-
-	    	.booking-item {
-	    		cursor: pointer;
-	    		padding: 10px 0;
-		    	.status {
-		    		.circle {
-		    			margin: 0;
-		    		}
-		    		float: left;
-		    		margin-right: 10px;
-		    	}
-		    	.interval {
-		    		float: left;
-		    		font-size: .8em;
-		    		margin-right: 10px;
-		    		
-		    	}
-		    	.status-in-text {
-		    		color: #ccc;
-		    		float: left;
-		    		font-size: .8em;
-
-		    	}
-		    	.indicator {
-		    		color: @gray-light;
-		    		.fa {
-		    			transition:all 2s ease-in-out;
-		    			&.rotate {
-		    				transform:rotateX(180deg);
-		    			}
-		    		} 
-		    	}
+	    	.interval {
+	    		float: left;
+	    		font-size: .8em;
+	    		margin-right: 10px;
+	    		
 	    	}
-
-	    	.footer {
-	    		.header {
-	    			text-align: center;
-	    			font-weight: bolder;
-	    			margin-bottom: 10px;
-	    		}
-
-	    		.btn-area {
-	    			text-align: center;
-		    		.btn {
-		    			width: 200px;
-		    		}
-	    		}
-
-	    		.book-feedback-graphics {
-	    			font-size: 2em;
-	    			color: @brand-success;
-	    		}
+	    	.status-in-text {
+	    		color: #ccc;
+	    		float: left;
+	    		font-size: .8em;
 
 	    	}
 
     	}
+
+    	.footer {
+    		.header {
+    			text-align: center;
+    			font-weight: bolder;
+    			margin-bottom: 10px;
+    		}
+
+    		.btn-area {
+    			text-align: center;
+	    		.btn {
+	    			width: 200px;
+	    		}
+    		}
+
+    		.book-feedback-graphics {
+    			font-size: 2em;
+    			color: @brand-success;
+    		}
+
+    	}
+
 	}
+}
+
+#my-bookings {
+	li {
+		&.\33 {
+			border-left:3px solid @brand-warning;
+		}
+	}
+
+	.room-info {
+		.room-title {
+			font-size: .8em;
+
+		}
+		.room-meta {
+			color: #ccc;
+			font-size: .8em;
+			margin-top: 5px;
+		}
+		.date {
+			margin-top: 5px;
+			font-size:  1em;
+		}
+		.room-location {
+			.room-meta();
+			margin-top: 0;
+		}
+	}
+
+}
+
+
+
+
+.accordian-list {
+	>li {
+		float: left;
+		width: 100%;
+		border-bottom: 1px solid #ccc;
+		padding: 5px 5px;
+		&:first-child {
+			border-top: 1px solid #ccc;
+    	}
+		.accordian-item {
+			cursor: pointer;
+			padding: 10px 0;
+	    	.indicator {
+	    		color: @gray-light;
+	    		.fa {
+	    			transition:all 2s ease-in-out;
+	    			&.rotate {
+	    				transform:rotateX(180deg);
+	    			}
+	    		} 
+	    	}
+		}
+    }
+
+
 }
 
 .center-content {

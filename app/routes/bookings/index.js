@@ -27,4 +27,11 @@ export default Ember.Route.extend(ResetScroll, {
 		return this.store.find("booking" ,{username: sessionStorage.getItem("librarycardNumber"), password: sessionStorage.getItem("personalSecurityNumber")});
 	},
 
+	actions: {
+		reloadModel: function(modelID) {
+			this.refresh();
+		}
+
+	}
+
 });

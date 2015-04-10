@@ -43,16 +43,23 @@ export default {
   		personalSecurityNumber: 'Personal security number',
   		signature: 'Signature',
   		bookButton: 'Book',
-      okButton: 'Okaj',
+      okButton: 'Ok',
   	},	
 
+    myBookings: {
+      header: 'Bookings',
+      cancelBookingButton: 'Cancel booking',
+      confirmBookingButton: 'Confirm',
+      noBookingsMessage: 'You have no bookings',
+    },
   	error: {
   		passUnavail: 'This booking is no longer availible. Someone got to it before you. Sorry!',
   		passLimitError: 'You have overstepped your availible booking-ratio',
   		checkLoginInformation: 'Kontrollera uppgifterna!',
   	},
   	success: {
-  		bookSuccess: 'This slot has now been booked for you'
+  		bookSuccess: 'This slot has now been booked for you',
+      cancelBookingSuccess: 'This booking has been canceled',
   	}
 
 

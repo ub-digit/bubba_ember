@@ -1,4 +1,4 @@
-<div {{bind-attr id=room.id}} class="booking-item row" {{action 'toggleExpanded'}}>
+<div {{bind-attr id=room.id}} class="booking-item accordian-item row" {{action 'toggleExpanded'}}>
 	<div class="col-xs-10">
 		<div class="status">
 			<span {{bind-attr class=":circle room.status"}}></span>
@@ -78,7 +78,7 @@
 						</div>
 						<div class="form-group">
 							<label class="sr-only">{{t 'loginForm.signature'}}</label>
-							{{input type="text" class="form-control" placeholder=(t 'loginForm.signature') value=signature}}
+							{{input type="text" class="form-control" placeholder=(t 'loginForm.signature') value=user.signature}}
 						</div>
 						{{#if error.auth_error}}
 							<div class="alert alert-danger" role="alert">

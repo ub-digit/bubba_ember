@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 	needs: ['application'],
+	showConfirmSuccess: false, 
+
 	isExpanded: function() {
 		if (this.get("isExpandedId") === this.get("booking.id")) {
 			return	true;
@@ -22,11 +24,12 @@ export default Ember.Component.extend({
 		}
 	}.property('booking.id'),
 
-	actions: {
-		toggleExpanded: function() {
+
+	toggleExpanded: function() {
 			/*if (this.get("room.booked") && !this.get("isExpanded")) {
 				return;
 			}*/
+			this.set("showConfirmSuccess", false);
 			if (this.get("isExpanded")) {
 				this.set("isExpandedId", null);
 			}
@@ -34,10 +37,17 @@ export default Ember.Component.extend({
 				this.set("isExpandedId", this.get("booking.id"));
 				var that = this;
 				Ember.run.later(function(){
-					Ember.$(window).scrollTo("#" + that.get("booking.id"), 500);
-					that.$('.cardnumber').focus();
+					Ember.$(window).scrollTo("#" + that.get("booking.id"), 300);
 				});
 			}
+	},
+	actions: {
+		closeButtonClicked: function(id) {
+			this.sendAction('reloadModel', id);
+			this.toggleExpanded();
+		},
+		toggleExpanded: function() {
+			this.toggleExpanded();
 		},
 		cancelBooking: function(id) {
 			var that = this;
@@ -52,7 +62,9 @@ export default Ember.Component.extend({
 		confirmBooking: function(id) {
 			var that = this;
 			var successHandler = function(response) {
-				this.set("showConfirmSuccess");
+				that.set("showConfirmSuccess", true);
+				that.set('booking.status', response.status);
+				that.set("booking.confirmable", response.confirmable);
 				//that.sendAction('reloadModel', response.id);
 			};
 			var errorHandler = function() {

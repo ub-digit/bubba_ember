@@ -69,7 +69,7 @@ export default Ember.Component.extend({
 				this.set("isFormPresent", true);
 				var that = this;
 				Ember.run.later(function(){
-					Ember.$(window).scrollTo("#" + that.get("room.id"), 500);
+					Ember.$(window).scrollTo("#" + that.get("room.id"), 300);
 					that.$('.cardnumber').focus();
 				});
 			}

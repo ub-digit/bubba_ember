@@ -48,7 +48,7 @@ export default {
 
     myBookings: {
       header: 'Bookings',
-      cancelBookingButton: 'Cancel booking',
+      cancelBookingButton: 'Cancel',
       confirmBookingButton: 'Confirm',
       noBookingsMessage: 'You have no bookings',
     },
@@ -60,6 +60,7 @@ export default {
   	success: {
   		bookSuccess: 'This slot has now been booked for you',
       cancelBookingSuccess: 'This booking has been canceled',
+      confirmSuccess: 'This has now been confirmed',
   	}
 
 

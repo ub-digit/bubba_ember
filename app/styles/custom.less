@@ -41,6 +41,9 @@ nav {
 }
 
 .list-rooms {
+	a {
+		color: @gray-dark;
+	}
 	>li {
 		@media (min-width: @screen-sm-min) {
 			&:hover {
@@ -58,6 +61,7 @@ nav {
     	}
 
 		#room-component-item {
+
 			cursor: pointer;
 			.room-title {
 				font-size: 1em;
@@ -136,6 +140,7 @@ nav {
 	.list-bookings {
 
     	.booking-item {
+    		padding: 10px 0;
 	    	.status {
 	    		.circle {
 	    			margin: 0;
@@ -172,10 +177,6 @@ nav {
 	    		}
     		}
 
-    		.book-feedback-graphics {
-    			font-size: 2em;
-    			color: @brand-success;
-    		}
 
     	}
 
@@ -183,29 +184,36 @@ nav {
 }
 
 #my-bookings {
-	li {
-		&.\33 {
-			border-left:3px solid @brand-warning;
+	.booking-item {
+		.indicator {
+			margin-top: 10px;
 		}
 	}
-
 	.room-info {
-		.room-title {
-			font-size: .8em;
+		.status {
+			margin-top: 10px;
+			float: left;
+			margin-right: 10px;
+		}
+		.info {
+			float: left;
+			.room-title {
+				font-size: .8em;
 
-		}
-		.room-meta {
-			color: #ccc;
-			font-size: .8em;
-			margin-top: 5px;
-		}
-		.date {
-			margin-top: 5px;
-			font-size:  1em;
-		}
-		.room-location {
-			.room-meta();
-			margin-top: 0;
+			}
+			.room-meta {
+				color: #ccc;
+				font-size: .8em;
+				margin-top: 5px;
+			}
+			.date {
+				margin-top: 5px;
+				font-size:  1em;
+			}
+			.room-location {
+				.room-meta();
+				margin-top: 0;
+			}
 		}
 	}
 
@@ -225,7 +233,7 @@ nav {
     	}
 		.accordian-item {
 			cursor: pointer;
-			padding: 10px 0;
+			padding:  0;
 	    	.indicator {
 	    		color: @gray-light;
 	    		.fa {
@@ -244,6 +252,12 @@ nav {
 .center-content {
 	text-align: center;
 }
+
+.book-feedback-graphics {
+	font-size: 2em;
+	color: @brand-success;
+}
+
 
 .circle {
 	&.\31 {

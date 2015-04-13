@@ -1,33 +1,43 @@
-	<div class="booking-item accordian-item row" {{action 'toggleExpanded'}}>
+	<div {{bind-attr id=booking.id}}  class="booking-item accordian-item row" {{action 'toggleExpanded'}}>
 		<div class="col-xs-10 room-info">
 			<div class="row">
-				<div class="col-xs-12 date">
-					{{booking.pass_day}} {{booking.pass_start}} - {{booking.pass_stop}}
+				<div class="col-xs-12">
+				 		{{#if booking.confirmable}}
+							<div class="status">
+								<span {{bind-attr class=":circle booking.status"}}></span>
+							</div>
+						{{/if}}
+						<div class="info">
+							<div class="date">
+								{{booking.pass_day}} {{booking.pass_start}} - {{booking.pass_stop}}
+							</div>
+
+
+							<div class="room-title">
+								{{booking.booking_object.place}} - {{booking.booking_object.name}}
+							</div>
+
+							{{#if isExpanded}}
+								<div class="row">
+									<div class="col-xs-12 room-meta">
+										{{booking.booking_object.seats}} {{t 'room.meta.seats'}}
+										{{#if booking.booking_object.has_computer}}
+										, {{t 'room.meta.computer'}}
+										{{/if}}
+										{{#if booking.booking_object.has_whiteboard}}
+										, {{t 'room.meta.whiteboard'}}
+										{{/if}}
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12 room-location">
+										{{getLibraryLocationName}}
+									</div>
+								</div>
+							{{/if}}
+						</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-xs-12 room-title">
-					{{booking.booking_object.place}} - {{booking.booking_object.name}}
-				</div>
-			</div>
-			{{#if isExpanded}}
-				<div class="row">
-					<div class="col-xs-12 room-meta">
-						{{booking.booking_object.seats}} {{t 'room.meta.seats'}}
-						{{#if booking.booking_object.has_computer}}
-						, {{t 'room.meta.computer'}}
-						{{/if}}
-						{{#if booking.booking_object.has_whiteboard}}
-						, {{t 'room.meta.whiteboard'}}
-						{{/if}}
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 room-location">
-						{{getLibraryLocationName}}
-					</div>
-				</div>
-			{{/if}}
 		</div>
 
 		<div class="col-xs-2">
@@ -42,14 +52,29 @@
 	</div>
 
 	{{#if isExpanded}}
-		<div class="row">
-			<div class="col-xs-12 center-content">
-				{{#if booking.cancelable}}
-					<button class="btn btn-danger" {{action 'cancelBooking' booking.id}}>{{t 'myBookings.cancelBookingButton'}}</button>
-				{{/if}}
-				{{#if booking.confirmable }}
-					<button {{action 'confirmBooking' booking.id}} {{bind-attr class=":btn :btn-primary booking.status"}}>{{t 'myBookings.confirmBookingButton'}}</button>
-				{{/if}}
+
+		{{#if showConfirmSuccess}}
+			<div class="row">
+				<div class="center-content col-xs-12 col-md-6 col-md-offset-3">
+					<div>{{t 'success.confirmSuccess'}}</div>
+					<div class="book-feedback-graphics">
+						<i class="fa fa-check"></i>
+					</div>
+					<div class="btn-area form-group">
+						<button class="btn btn-default" {{action 'closeButtonClicked' booking.id}}>{{t 'closeButton'}}</button>
+					</div>
+				</div>
 			</div>
-		</div>
+		{{else}}
+			<div class="row">
+				<div class="col-xs-12 center-content">
+					{{#if booking.cancelable}}
+						<button class="btn btn-danger" {{action 'cancelBooking' booking.id}}>{{t 'myBookings.cancelBookingButton'}}</button>
+					{{/if}}
+					{{#if booking.confirmable }}
+						<button {{action 'confirmBooking' booking.id}} {{bind-attr class=":btn :btn-primary booking.status"}}>{{t 'myBookings.confirmBookingButton'}}</button>
+					{{/if}}
+				</div>
+			</div>
+		{{/if}}
 	{{/if}}

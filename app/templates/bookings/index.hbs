@@ -1,7 +1,11 @@
-
-{{log model}}
-
 <div id="my-bookings">
+	<ul class="list-unstyled list-of-confirmables">
+	{{#each item in modelForConfirm}}
+		<li>
+			{{my-booking-item-confirmable booking=item libraries=controllers.application.librariesSorted reloadModel='reloadModel'}}
+		</li>
+	{{/each}}
+	</ul>
 	<div class="header">
 		{{t 'myBookings.header'}}
 	</div>

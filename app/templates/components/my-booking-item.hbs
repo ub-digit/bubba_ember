@@ -3,13 +3,13 @@
 			<div class="row">
 				<div class="col-xs-12">
 				 		{{#if booking.confirmable}}
-							<div class="status">
+							<!--<div class="status">
 								<span {{bind-attr class=":circle booking.status"}}></span>
-							</div>
+							</div>-->
 						{{/if}}
 						<div class="info">
 							<div class="date">
-								{{booking.pass_day}} {{booking.pass_start}} - {{booking.pass_stop}}
+								{{getDate}} {{booking.pass_start}} - {{booking.pass_stop}}
 							</div>
 
 
@@ -41,18 +41,19 @@
 		</div>
 
 		<div class="col-xs-2">
-			<div class="indicator pull-right">
-				{{#if isExpanded}}
-					<i class="fa fa-chevron-down rotate"></i>
-				{{else}}
-					<i class="fa fa-chevron-down"></i>
-				{{/if}}
-			</div>
+			{{#if isExpandable}}
+				<div class="indicator pull-right">
+					{{#if isExpanded}}
+						<i class="fa fa-chevron-down rotate"></i>
+					{{else}}
+						<i class="fa fa-chevron-down"></i>
+					{{/if}}
+				</div>
+			{{/if}}
 		</div>
 	</div>
 
 	{{#if isExpanded}}
-
 		{{#if showConfirmSuccess}}
 			<div class="row">
 				<div class="center-content col-xs-12 col-md-6 col-md-offset-3">
@@ -67,7 +68,7 @@
 			</div>
 		{{else}}
 			<div class="row">
-				<div class="col-xs-12 center-content">
+				<div class="col-xs-12 center-content btn-area">
 					{{#if booking.cancelable}}
 						<button class="btn btn-danger" {{action 'cancelBooking' booking.id}}>{{t 'myBookings.cancelBookingButton'}}</button>
 					{{/if}}

@@ -1,7 +1,7 @@
 export default {
   mainNav: {
-    nav1: 'Rum',
-    nav2: 'Mina bokningar'
+    nav1: 'Rooms',
+    nav2: 'My bookings'
   },
   filter: {
     dropdown: {
@@ -16,8 +16,8 @@ export default {
     noResultForActiveFilter: 'No rooms available',
 
     dateStrings: {
-      today: 'Today',
-      tomorrow: 'Tomorrow'
+      today: 'Idag',
+      tomorrow: 'Imorgon'
     },
     
   },
@@ -43,15 +43,24 @@ export default {
       personalSecurityNumber: 'Personal security number',
       signature: 'Signature',
       bookButton: 'Book',
+      okButton: 'Ok',
     },  
 
+    myBookings: {
+      header: 'My Bookings',
+      cancelBookingButton: 'Cancel',
+      confirmBookingButton: 'Confirm',
+      noBookingsMessage: 'You have no bookings',
+    },
     error: {
       passUnavail: 'This booking is no longer availible. Someone got to it before you. Sorry!',
       passLimitError: 'You have overstepped your availible booking-ratio',
       checkLoginInformation: 'Kontrollera uppgifterna!',
     },
     success: {
-      bookSuccess: 'This slot has now been booked for you'
+      bookSuccess: 'This slot has now been booked for you',
+      cancelBookingSuccess: 'This booking has been canceled',
+      confirmSuccess: 'This has now been confirmed',
     }
 
 

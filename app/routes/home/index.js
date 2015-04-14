@@ -19,12 +19,20 @@ export default Ember.Route.extend(ResetScroll,{
 			return this.store.find('booking_object', filter);
 		}
 		else {
-			this.controllerFor('home.index').set("selectedLibrary", null);
+			
 			this.controllerFor('home.index').set("selectedDate", "0");
 			return null;
 		}		
 	},
 	setupController: function(controller, model) {
 		controller.set("model", model);
+		var latestVisited = null;
+		if (localStorage.getItem("latestVisited")) {
+			latestVisited = localStorage.getItem("latestVisited");
+			this.controllerFor('home.index').set("selectedLibrary", latestVisited);
+		}
+		else {
+			this.controllerFor('home.index').set("selectedLibrary", null);
+		}
 	}
 });

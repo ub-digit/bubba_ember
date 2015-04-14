@@ -3,6 +3,29 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 	needs: ['application'],
 	showConfirmSuccess: false, 
+	getDate: function() {
+		var application = this.container.lookup('application:main');
+		var local = application.get("locale");
+		if (!local) {
+			local = application.get('defaultLocale');
+		}
+		var t = this.container.lookup('utils:t');
+		var dateStr = null;
+		var currentDate = moment(this.get("booking.pass_day")).startOf("day");
+		var today = moment().startOf('day');
+		var tomorrow = moment().add(1, 'days').startOf("day");
+		if (currentDate.isSame(today)) {
+			dateStr = t('filter.dateStrings.today');
+		}
+		else if (currentDate.isSame(tomorrow)) {
+			dateStr = t('filter.dateStrings.tomorrow');
+		}
+		else {
+			dateStr = moment(this.get("booking.pass_day")).locale(local).format("dddd, Do MMM");
+		}
+		
+		return dateStr;
+	}.property('booking'),
 
 	isExpanded: function() {
 		if (this.get("isExpandedId") === this.get("booking.id")) {
@@ -12,6 +35,15 @@ export default Ember.Component.extend({
 			return false;
 		}
 	}.property('isExpandedId'),
+
+	isExpandable: function() {
+		if (this.get("booking.confirmable") ||  this.get("booking.cancelable")) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}.property('booking'),
 
 	getLibraryLocationName: function() {
 		var libs = this.get("libraries");
@@ -26,9 +58,10 @@ export default Ember.Component.extend({
 
 
 	toggleExpanded: function() {
-			/*if (this.get("room.booked") && !this.get("isExpanded")) {
+			if (!this.get("isExpandable")) {
 				return;
-			}*/
+			}
+
 			this.set("showConfirmSuccess", false);
 			if (this.get("isExpanded")) {
 				this.set("isExpandedId", null);

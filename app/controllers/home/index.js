@@ -11,4 +11,8 @@ export default Ember.Controller.extend({
 			return false;
 		}
 	}.property('selectedLibrary'),
+
+	updateLocalStorage: function() {
+		localStorage.setItem("latestVisited", this.get("selectedLibrary"));
+	}.observes("selectedLibrary"),
 });

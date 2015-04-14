@@ -85,7 +85,7 @@ nav {
 	    			height: 30px;
 	    			display: inline-block;
 	    			float:left;
-	    			margin-right: 7px;
+	    			margin-right: 5px;
 	    			font-size:.6em;
 	    			.circle {
 	    				&.\31 {
@@ -184,10 +184,15 @@ nav {
 }
 
 #my-bookings {
+    .btn-area {
+    	margin-bottom: 20px;
+    	margin-top: 20px;
+    }
 	.booking-item {
 		.indicator {
 			margin-top: 10px;
 		}
+		
 	}
 	.room-info {
 		.status {
@@ -215,6 +220,23 @@ nav {
 				margin-top: 0;
 			}
 		}
+	}
+
+	.list-of-confirmables {
+		float: left;
+		width: 100%;
+		>li {
+			float: left;
+			width: 100%;
+			border-bottom: 1px solid #ccc;
+			padding: 5px 5px;
+			&:first-child {
+					border-top: 1px solid #ccc;
+		    }
+		}
+		margin-bottom: 20px;
+
+
 	}
 
 }
@@ -247,6 +269,12 @@ nav {
     }
 
 
+}
+
+.login-form {
+	.btn {
+		min-width: 200px;
+	}
 }
 
 .center-content {
@@ -286,5 +314,14 @@ nav {
 		width: 30px;
 		height: 30px;
 	}
+}
+
+
+.warning {
+	color: @brand-warning;
+}
+
+.danger {
+	color: @brand-danger;
 }
 

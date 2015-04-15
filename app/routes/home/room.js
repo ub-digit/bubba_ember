@@ -3,10 +3,10 @@ import ResetScroll from '../../mixins/reset-scroll';
 
 export default Ember.Route.extend(ResetScroll,{
 	beforeModel: function() {
-		Ember.$("body").addClass("loading");
+		Ember.$("#ember-app-bubba-cli").addClass("loading");
 	},
 	afterModel: function() {
-		Ember.$("body").removeClass("loading");
+		Ember.$("#ember-app-bubba-cli").removeClass("loading");
 	},
 	
 	model: function(params) {

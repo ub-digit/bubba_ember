@@ -8,10 +8,10 @@ export default Ember.Route.extend(ResetScroll,{
 		selectedDate: { refreshModel: true }
     },
 	beforeModel: function() {
-		Ember.$("body").addClass("loading");
+		Ember.$("#ember-app-bubba-cli").addClass("loading");
 	},
 	afterModel: function() {
-		Ember.$("body").removeClass("loading");
+		Ember.$("#ember-app-bubba-cli").removeClass("loading");
 	},
 	model: function(params) {
 		// get list of librarie

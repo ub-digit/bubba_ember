@@ -16,13 +16,13 @@ export default Ember.Route.extend(ResetScroll, {
 			this.transitionTo("bookings.login");
 		}
 		else {
-			Ember.$("body").addClass("loading");
+			Ember.$("#ember-app-bubba-cli").addClass("loading");
 		}
 		
 	},
 
 	afterModel: function() {
-		Ember.$("body").removeClass("loading");
+		Ember.$("#ember-app-bubba-cli").removeClass("loading");
 	},
 	model: function() {
 		// get the data from store here

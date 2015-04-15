@@ -2,10 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 	beforeModel: function() {
-		Ember.$("body").addClass("loading");
+		Ember.$("#ember-app-bubba-cli").addClass("loading");
 	},
 	afterModel: function() {
-		Ember.$("body").removeClass("loading");
+		Ember.$("#ember-app-bubba-cli").removeClass("loading");
 	},
 	model: function() {
 		// get list of libraries

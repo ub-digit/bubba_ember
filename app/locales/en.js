@@ -38,6 +38,7 @@ export default {
   	},
 
   	loginForm: {
+      outletHeader: "Sign in",
   		header: 'Book this location',
   		patrionCardNumber: 'Cardnumber',
   		personalSecurityNumber: 'Personal security number',
@@ -51,6 +52,12 @@ export default {
       cancelBookingButton: 'Cancel',
       confirmBookingButton: 'Confirm',
       noBookingsMessage: 'You have no bookings',
+      countdownStrings: {
+        startInBefore: 'Starting in',
+        startInAfter: 'minutes',
+        startedAgoBefore: 'Started',
+        startedAgoAfter: 'minutes ago',
+      },
     },
   	error: {
   		passUnavail: 'This booking is no longer availible. Someone got to it before you. Sorry!',

@@ -49,7 +49,7 @@ export default Ember.Component.extend({
 
 	actions: {
 		toggleExpanded: function() {
-			if (this.get("room.booked") || !this.get("room.bookable") && !this.get("isExpanded")) {
+			if (!this.get("room.bookable") && !this.get("isExpanded")) {
 				return;
 			}
 			if (this.get("isExpanded")) {
@@ -70,7 +70,10 @@ export default Ember.Component.extend({
 				var that = this;
 				Ember.run.later(function(){
 					Ember.$(window).scrollTo("#" + that.get("room.id"), 300);
-					that.$('.cardnumber').focus();
+					var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+					if (!supportsTouch) {
+						that.$('.cardnumber').focus();
+					}
 				});
 			}
 		},

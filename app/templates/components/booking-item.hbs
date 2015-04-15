@@ -1,4 +1,4 @@
-<div {{bind-attr id=room.id}} class="booking-item accordian-item row" {{action 'toggleExpanded'}}>
+<div {{bind-attr id=room.id}} {{bind-attr class=":booking-item :accordian-item :row room.bookable:bookable:muted"}} {{action 'toggleExpanded'}}>
 	<div class="col-xs-10">
 		<div class="status">
 			<span {{bind-attr class=":circle room.status"}}></span>

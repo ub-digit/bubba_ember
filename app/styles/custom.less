@@ -1,3 +1,25 @@
+#spinner {
+	display: none;
+}
+.loading {
+	#spinner {
+		display: block;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		margin-left: -15px;
+		padding-top: 3px;
+		z-index: 10;
+		width: 30px;
+		height: 30px;
+		background: @gray-dark;
+		border-radius: 4px;
+		text-align: center;
+		.fa {
+			color: #fff;
+		}
+	}
+}
 
 body {
 	margin-top: 40px;

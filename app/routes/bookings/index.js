@@ -15,6 +15,14 @@ export default Ember.Route.extend(ResetScroll, {
 		if (!this.isLoggedIn()) {
 			this.transitionTo("bookings.login");
 		}
+		else {
+			Ember.$("body").addClass("loading");
+		}
+		
+	},
+
+	afterModel: function() {
+		Ember.$("body").removeClass("loading");
 	},
 	model: function() {
 		// get the data from store here

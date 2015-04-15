@@ -1,14 +1,13 @@
-{{#if rooms}}
-	<div class="header">{{t 'room.listOfRoomsHeader'}}</div>
-	<ul class="list-unstyled list-rooms">
-	
-		{{#each item in rooms}} 
-			<li>
-				{{room-item room=item selectedDay=selectedDay}}
-			</li>
-			{{else}}
-				<p>{{t 'filter.noResultForActiveFilter'}}</p>
-		{{/each}}
-	</ul>
-{{/if}}
+
+<div class="header">{{t 'room.listOfRoomsHeader'}}</div>
+<ul class="list-unstyled list-rooms">
+	{{#each item in rooms}} 
+		<li>
+			{{room-item room=item selectedDay=selectedDay}}
+		</li>
+		{{else}}
+			<p>{{t 'filter.noResultForActiveFilter'}}</p>
+	{{/each}}
+</ul>
+
 

@@ -2,6 +2,13 @@ import Ember from 'ember';
 import ResetScroll from '../../mixins/reset-scroll';
 
 export default Ember.Route.extend(ResetScroll,{
+	beforeModel: function() {
+		Ember.$("body").addClass("loading");
+	},
+	afterModel: function() {
+		Ember.$("body").removeClass("loading");
+	},
+	
 	model: function(params) {
 		return this.store.find('booking_object', {id:params.id, day: params.day});
 	},

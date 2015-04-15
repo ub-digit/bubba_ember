@@ -1,6 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+	beforeModel: function() {
+		Ember.$("body").addClass("loading");
+	},
+	afterModel: function() {
+		Ember.$("body").removeClass("loading");
+	},
 	model: function() {
 		// get list of libraries
 		return this.store.find('location');	

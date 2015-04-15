@@ -7,7 +7,12 @@ export default Ember.Route.extend(ResetScroll,{
 		selectedLibrary: { refreshModel: true },
 		selectedDate: { refreshModel: true }
     },
-
+	beforeModel: function() {
+		Ember.$("body").addClass("loading");
+	},
+	afterModel: function() {
+		Ember.$("body").removeClass("loading");
+	},
 	model: function(params) {
 		// get list of librarie
 		var filter = {};

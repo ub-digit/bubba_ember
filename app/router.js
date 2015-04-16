@@ -6,12 +6,14 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-    this.resource("home", {path: '/'}, function() {
-        this.route("room", {path: ':id/:day'});
-    });
-    this.route('bookings', function() {
-        this.route("login");
-    });
+  this.resource("home", {path: '/'}, function() {
+      this.route("room", {path: ':id/:day'});
+  });
+  this.route('bookings', function() {
+      this.route("login");
+  });
+  this.route('foo');
+  this.route('bar');
 });
 
 export default Router;

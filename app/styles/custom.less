@@ -99,43 +99,44 @@ nav {
 				color: #ccc;
 				
 			}
-	    	.room-availible-intervals-list {
-	    		margin-top: 10px;
-	    		li {
-	    			text-align: center;
-	    			width: 25px;
-	    			height: 30px;
-	    			display: inline-block;
-	    			float:left;
-	    			margin-right: 5px;
-	    			font-size:.6em;
-	    			.circle {
-	    				&.\31 {
-	    					background: @brand-success;
-	    				}
-	    				&.\32 {
-	    					background: @brand-danger;
-	    				}
-	    				&.\33 {
-	    					background: @brand-warning;
-	    				}
-	    				&.\34 {
-	    					background: @brand-danger;
-	    				}
-	    				&.\35 {
-	    					background: @brand-danger;
-	    				}
-	    				margin: 0 auto;
-	    				margin-bottom: 5px;
-	    				display: block;
-	    				width: 15px;
-	    				height: 15px;
-	    				border: 1px solid #ccc;
-	    				border-radius: 50%;
-	    			}
+			.room-availible-intervals {
+				float: left;
+		    	.room-availible-intervals-list {
+		    		float: left;
+		    		li {
+		    			text-align: center;
+		    			width: 25px;
+		    			display: inline-block;
+		    			float:left;
+		    			margin-right: 5px;
+		    			font-size:.6em;
+		    			.circle {
+		    				&.\31 {
+		    					background: @brand-success;
+		    				}
+		    				&.\32 {
+		    					background: @brand-danger;
+		    				}
+		    				&.\33 {
+		    					background: @brand-warning;
+		    				}
+		    				&.\34 {
+		    					background: @brand-danger;
+		    				}
+		    				&.\35 {
+		    					background: @brand-danger;
+		    				}
+		    				margin: 0 auto;
+		    				margin-bottom: 5px;
+		    				display: block;
+		    				width: 15px;
+		    				height: 15px;
+		    				border-radius: 50%;
+		    			}
 
-	    		}
-	    	}
+		    		}
+		    	}
+		    }
 		}
 	}
 }
@@ -162,7 +163,6 @@ nav {
 	.list-bookings {
 
     	.booking-item {
-    		padding: 10px 0;
 	    	.status {
 	    		.circle {
 	    			margin: 0;
@@ -186,6 +186,7 @@ nav {
     	}
 
     	.footer {
+    		margin-top: 20px;
     		.header {
     			text-align: center;
     			font-weight: bolder;
@@ -268,8 +269,7 @@ nav {
 
 .accordian-list {
 	>li {
-		float: left;
-		width: 100%;
+
 		border-bottom: 1px solid #ccc;
 		padding: 5px 5px;
 		&:first-child {
@@ -291,6 +291,14 @@ nav {
     }
 
 
+}
+
+.list-unstyled {
+	li {
+		float: left;
+		width: 100%;
+		padding: 10px 0;
+	}
 }
 
 .login-form {

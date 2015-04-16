@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
 	needs: ['application'],
 	queryParams: ['selectedLibrary', 'selectedDate'],
 	showPleaseSelectPrompt: function() {
-		if ((this.get("selectedLibrary") === null) || (this.get("selectedLibrary") === "null")) {
+		if ((this.get("selectedLibrary") === "undefined") || (this.get("selectedLibrary") === null) || (this.get("selectedLibrary") === "null")) {
 			return true;
 		}	
 		else {

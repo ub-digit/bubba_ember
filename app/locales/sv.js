@@ -16,8 +16,8 @@ export default {
     noResultForActiveFilter: 'Inga tillgängliga rum hittades',
 
     dateStrings: {
-      today: 'Idag',
-      tomorrow: 'Imorgon'
+      today: 'idag',
+      tomorrow: 'imorgon'
     },
 
   },
@@ -44,7 +44,7 @@ export default {
       personalSecurityNumber: 'Personnummer',
       signature: 'Signatur',
       bookButton: 'Boka',
-      okButton: 'Ok',
+      okButton: 'OK',
     },
 
     myBookings: {

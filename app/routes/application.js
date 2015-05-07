@@ -22,7 +22,7 @@ export default Ember.Route.extend({
 		}
 		for (var i = 0; i < 7; i++) {
 			 var date = moment().add(i, 'days');
-			 var dateStr = date.locale(local).format("dddd D MMM");
+			 var dateStr = date.locale(local).format(application.get("dateFormatString"));
 			 var t = this.container.lookup('utils:t');
 			 if (i === 0) {
 			 	dateStr = t('filter.dateStrings.today');

@@ -21,7 +21,7 @@ export default Ember.Component.extend({
 			dateStr = t('filter.dateStrings.tomorrow');
 		}
 		else {
-			dateStr = moment(this.get("booking.pass_day")).locale(local).format("dddd, Do MMM");
+			dateStr = moment(this.get("booking.pass_day")).locale(local).format(application.get("dateFormatString"));
 		}
 		
 		return dateStr;

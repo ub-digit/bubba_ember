@@ -70,7 +70,7 @@ export default Ember.Component.extend({
 				this.set("isExpandedId", this.get("booking.id"));
 				var that = this;
 				Ember.run.later(function(){
-					Ember.$(window).scrollTo("#" + that.get("booking.id"), 300);
+					//Ember.$(window).scrollTo("#" + that.get("booking.id"), 300);
 				});
 			}
 	},

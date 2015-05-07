@@ -12,8 +12,7 @@ Router.map(function() {
   this.route('bookings', function() {
       this.route("login");
   });
-  this.route('foo');
-  this.route('bar');
+
 });
 
 export default Router;

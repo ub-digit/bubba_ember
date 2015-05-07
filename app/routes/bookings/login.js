@@ -12,7 +12,7 @@ export default Ember.Route.extend({
 			controller.set("librarycardNumber", sessionStorage.getItem("librarycardNumber"));
 		}
 		if (sessionStorage.getItem("personalSecurityNumber")) {
-			controller.set("personalSecurityNumber", sessionStorage.getItem("personalSecurityNumber"))
+			controller.set("personalSecurityNumber", sessionStorage.getItem("personalSecurityNumber"));
 		}
 	}
 });

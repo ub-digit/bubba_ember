@@ -26,17 +26,11 @@ export default Ember.Route.extend(ResetScroll, {
 	},
 	model: function() {
 		// get the data from store here
-		var successHandler = function(response) {
-
-		}
-		var errorHandler = function(response) {
-			// reset sessionvars to null and redirect to login?
-		}
 		return this.store.find("booking" ,{username: sessionStorage.getItem("librarycardNumber"), password: sessionStorage.getItem("personalSecurityNumber")});
 	},
 
 	actions: {
-		reloadModel: function(modelID) {
+		reloadModel: function() {
 			this.refresh();
 		}
 

@@ -20,7 +20,7 @@ export default Ember.Controller.extend({
 		closeAllOpen: function() {
 			this.get("model.bookings").forEach(function(item) {
 				item.set('isExpanded', false);
-			})
+			});
 		}
 	}
 });

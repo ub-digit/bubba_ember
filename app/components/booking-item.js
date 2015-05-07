@@ -69,8 +69,7 @@ export default Ember.Component.extend({
 				this.set("isFormPresent", true);
 				var that = this;
 				Ember.run.later(function(){
-					//Ember.$(window).scrollTo("#" + that.get("room.id"), 300);
-					
+					Ember.$(window).scrollTo("#" + that.get("room.id"), 300);
 					var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
 					if (!supportsTouch) {
 						that.$('.cardnumber').focus();
@@ -81,7 +80,7 @@ export default Ember.Component.extend({
 
 		executeBooking: function(id) {
 			var that = this;
-			var successHandler = function(model,error) {
+			var successHandler = function(model) {
 				// save logininfo to local
 				that.saveToLocalStorage();
 				that.set("room", model);

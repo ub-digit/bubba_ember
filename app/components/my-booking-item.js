@@ -70,13 +70,13 @@ export default Ember.Component.extend({
 				this.set("isExpandedId", this.get("booking.id"));
 				var that = this;
 				Ember.run.later(function(){
-					//Ember.$(window).scrollTo("#" + that.get("booking.id"), 300);
+					Ember.$(window).scrollTo("#" + that.get("booking.id"), 300);
 				});
 			}
 	},
 	actions: {
-		closeButtonClicked: function(id) {
-			this.sendAction('reloadModel', id);
+		closeButtonClicked: function() {
+			this.sendAction('reloadModel');
 			this.toggleExpanded();
 		},
 		toggleExpanded: function() {
@@ -87,7 +87,7 @@ export default Ember.Component.extend({
 			var successHandler = function(response) {
 				that.sendAction('reloadModel', response.id);
 			};
-			var errorHandler = function(response) {
+			var errorHandler = function() {
 				// hanlde error	
 			};
 			this.store.save('booking', {id: id}, {username: sessionStorage.getItem("librarycardNumber"), password: sessionStorage.getItem("personalSecurityNumber"), cmd:'cancel'}).then(successHandler, errorHandler);

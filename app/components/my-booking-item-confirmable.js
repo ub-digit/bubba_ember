@@ -1,4 +1,4 @@
-import Ember from 'ember';
+
 import	myBookingItem from 'bubba-cli/components/my-booking-item';
 
 export default myBookingItem.extend({

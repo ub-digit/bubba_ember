@@ -27,13 +27,13 @@ export default Ember.Controller.extend({
 	actions: {
 		executeLogin: function() {
 			var that = this;
-			var successHandler = function(response) {
+			var successHandler = function() {
 				that.saveToLocalStorage();
 				that.transitionToRoute('bookings');
-			}
-			var errorHandler = function(response) {
+			};
+			var errorHandler = function() {
 				that.set("error", true);
-			}
+			};
 
 			this.set("error", false);
 			this.store.find('auth', this.get("librarycardNumber"), {password: this.get("personalSecurityNumber")}).then(successHandler, errorHandler);

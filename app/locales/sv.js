@@ -1,73 +1,73 @@
 export default {
   mainNav: {
-    nav1: 'Rooms',
-    nav2: 'My bookings'
+    nav1: 'Grupprum',
+    nav2: 'Mina bokningar'
   },
   filter: {
     dropdown: {
       libraries: {
-        prompt: 'Select a library'
+        prompt: 'Välj bibliotek'
       },
       dates: {
-        prompt: 'Select a date'
+        prompt: 'Välj dag'
       }
     },
-    missingLibraryInFilter: 'Please select a library',
-    noResultForActiveFilter: 'No rooms available',
+    missingLibraryInFilter: 'Välj ett bibliotek i listan',
+    noResultForActiveFilter: 'Inga tillgängliga rum hittades',
 
     dateStrings: {
-      today: 'Today',
-      tomorrow: 'Tomorrow'
+      today: 'Idag',
+      tomorrow: 'Imorgon'
     },
-    
+
   },
   room: {
       meta: {
-        seats: 'seat(s)', // will result in 2 seat(s)
-        computer: 'computer',
+        seats: 'platser', // will result in 2 seat(s)
+        computer: 'dator',
         whiteboard: 'whiteboard'
       },
-      listOfRoomsHeader: 'available rooms:',
+      listOfRoomsHeader: 'Tillgängliga rum:',
     },
-    backToListOfRoomsNav: 'Back to list of rooms',
-    closeButton: 'Close',
+    backToListOfRoomsNav: 'Tillbaka till lista med rum',
+    closeButton: 'Stäng',
 
     statusStrings: {
-      booked: 'Booked',
-      availible: 'Available'
+      booked: 'Bokat',
+      available: 'Ledigt'
     },
 
     loginForm: {
-      outletHeader: "Sign in",
-      header: 'Book this location',
-      patrionCardNumber: 'Cardnumber',
-      personalSecurityNumber: 'Personal security number',
-      signature: 'Signature',
-      bookButton: 'Book',
+      outletHeader: "Logga in",
+      header: 'Boka det här rummet',
+      patrionCardNumber: 'Nummer på GU-kort',
+      personalSecurityNumber: 'Personnummer',
+      signature: 'Signatur',
+      bookButton: 'Boka',
       okButton: 'Ok',
-    },  
+    },
 
     myBookings: {
-      header: 'My Bookings',
-      cancelBookingButton: 'Cancel',
-      confirmBookingButton: 'Confirm',
-      noBookingsMessage: 'You have no bookings',
+      header: 'Mina bokningar',
+      cancelBookingButton: 'Avboka',
+      confirmBookingButton: 'Kvittera',
+      noBookingsMessage: 'Du har inga bokningar',
       countdownStrings: {
-        startInBefore: 'Starting in',
-        startInAfter: 'minutes',
-        startedAgoBefore: 'Started',
-        startedAgoAfter: 'minutes ago',
+        startInBefore: 'Börjar om',
+        startInAfter: 'minuter',
+        startedAgoBefore: 'Började för',
+        startedAgoAfter: 'minuter sedan',
       },
     },
     error: {
-      passUnavail: 'This booking is no longer availible. Someone got to it before you. Sorry!',
-      passLimitError: 'You have overstepped your availible booking-ratio',
+      passUnavail: 'Tyvärr, det här rummet är inte längre tillgängligt. Någon hann före dig.',
+      passLimitError: 'Du har redan bokat 2 pass idag, och får tyvärr inte boka fler.',
       checkLoginInformation: 'Kontrollera uppgifterna!',
     },
     success: {
-      bookSuccess: 'This slot has now been booked for you',
-      cancelBookingSuccess: 'This booking has been canceled',
-      confirmSuccess: 'This has now been confirmed',
+      bookSuccess: 'Du har nu bokat det här passet.',
+      cancelBookingSuccess: 'Du har nu avbokat det här passet.',
+      confirmSuccess: 'Du har nu kvitterat det här passet.',
     }
 
 

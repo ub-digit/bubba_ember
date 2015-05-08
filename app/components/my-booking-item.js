@@ -49,7 +49,8 @@ export default Ember.Component.extend({
 		var libs = this.get("libraries");
 		var lib = libs.findBy('id',this.get("booking.booking_object.location_id").toString());
 		if (lib) {
-			return lib.display_title;
+			var test = decodeURI(lib.display_title);
+			return decodeURI(lib.display_title);
 		}
 		else {
 			return 'Unknown location';

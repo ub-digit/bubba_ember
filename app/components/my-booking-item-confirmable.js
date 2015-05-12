@@ -26,7 +26,7 @@ export default myBookingItem.extend({
 
 	hasStarted: function() {
 		var now = moment();
-		if (this.getStartTimestamp() > now) {
+		if (this.getStartTimestamp() < now) {
 			return	 true;
 		}
 		else {

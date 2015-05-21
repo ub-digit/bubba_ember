@@ -12,7 +12,6 @@ export default {
         prompt: 'Select a date'
       }
     },
-    missingLibraryInFilter: 'Please select a library',
     noResultForActiveFilter: 'No rooms available',
 
     dateStrings: {

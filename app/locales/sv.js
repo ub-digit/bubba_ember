@@ -12,7 +12,6 @@ export default {
         prompt: 'Välj dag'
       }
     },
-    missingLibraryInFilter: 'Välj ett bibliotek i listan',
     noResultForActiveFilter: 'Inga tillgängliga rum hittades',
 
     dateStrings: {

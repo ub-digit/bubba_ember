@@ -23,10 +23,15 @@ export default Ember.Controller.extend({
 				arr.push({'id': item.id.toString(), 'display_title': item.swedish_name});
 			});
 		}
-
 		return arr;//this.get("libraries");
 	}.property('libraries'),
 
 
 
+
+
+	actions: {
+
+
+	}
 });

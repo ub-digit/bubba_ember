@@ -1,8 +1,19 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+
 	beforeModel: function() {
 		Ember.$("#ember-app-bubba-cli").addClass("loading");
+	    var lang = "sv"; /// change to default
+	    if (sessionStorage.getItem('lang')) {
+	      lang = sessionStorage.getItem('lang');
+	    }
+		var set = Ember.set;
+		var application = this.container.lookup('application:main');
+		var local = application.get("locale");
+		sessionStorage.setItem('lang', lang);
+		set(application, 'locale', lang);
+
 	},
 	afterModel: function() {
 		Ember.$("#ember-app-bubba-cli").removeClass("loading");

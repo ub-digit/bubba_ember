@@ -1,4 +1,5 @@
 export default {
+  swithchToLanguageString: 'English',
   mainNav: {
     nav1: 'Grupprum',
     nav2: 'Mina bokningar'

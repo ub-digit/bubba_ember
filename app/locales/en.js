@@ -1,5 +1,9 @@
 export default {
   swithchToLanguageString: 'Svenska',
+
+  header: {
+    title: 'Book a group study room'
+  },
   mainNav: {
     nav1: 'Rooms',
     nav2: 'My bookings'
@@ -27,9 +31,9 @@ export default {
         computer: 'computer',
         whiteboard: 'whiteboard'
       },
-      listOfRoomsHeader: 'Available rooms:',
+      listOfRoomsHeader: 'Available rooms at',
     },
-    backToListOfRoomsNav: 'Back to list of rooms',
+    backToListOfRoomsNav: 'All rooms',
     closeButton: 'Close',
 
     statusStrings: {
@@ -41,7 +45,7 @@ export default {
       outletHeader: "Sign in",
       header: 'Book this room',
       patrionCardNumber: 'GU Card number',
-      personalSecurityNumber: 'Password yymmddxxxx',
+      personalSecurityNumber: 'Password',
       signature: 'Signature',
       bookButton: 'Book',
       okButton: 'Ok',

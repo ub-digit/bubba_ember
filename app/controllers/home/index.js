@@ -15,4 +15,19 @@ export default Ember.Controller.extend({
 	updateLocalStorage: function() {
 		localStorage.setItem("latestVisited", this.get("selectedLibrary"));
 	}.observes("selectedLibrary"),
+
+	getSelectedLibraryName: function() {
+		var item = this.get("controllers.application").get("librariesSorted").findBy("id", this.get("selectedLibrary"))
+		return item.display_title;
+	}.property('selectedLibrary'),
+
+	getSelectedDateString: function() {
+		if (this.get("selectedDate")) {
+			var item = this.get("controllers.application").get("dates").findBy("id",this.get("selectedDate"));
+			return item.title;
+		}
+		else {
+			return "";
+		}
+	}.property('selectedDate'),
 });

@@ -1,5 +1,8 @@
 export default {
   swithchToLanguageString: 'English',
+  header: {
+    title: 'Grupprumsbokning'
+  },
   mainNav: {
     nav1: 'Grupprum',
     nav2: 'Mina bokningar'
@@ -16,8 +19,8 @@ export default {
     noResultForActiveFilter: 'Inga tillgängliga rum hittades',
 
     dateStrings: {
-      today: 'idag',
-      tomorrow: 'imorgon'
+      today: 'Idag',
+      tomorrow: 'Imorgon'
     },
 
   },
@@ -27,9 +30,9 @@ export default {
         computer: 'dator',
         whiteboard: 'whiteboard'
       },
-      listOfRoomsHeader: 'Tillgängliga rum:',
+      listOfRoomsHeader: 'Lediga rum på',
     },
-    backToListOfRoomsNav: 'Tillbaka till lista med rum',
+    backToListOfRoomsNav: 'Alla rum',
     closeButton: 'Stäng',
 
     statusStrings: {

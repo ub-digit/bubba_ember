@@ -18,7 +18,7 @@ module.exports = function(environment) {
       // when it is created
       defaultLocale: 'sv',
       rootElement: '#ember-app-bubba-cli',
-      dateFormatString: "dddd D MMM"
+      dateFormatString: "YYYY-MM-DD"
     }
   };
 

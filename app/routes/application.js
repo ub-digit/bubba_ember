@@ -5,7 +5,12 @@ export default Ember.Route.extend({
 	beforeModel: function() {
 		Ember.$("#ember-app-bubba-cli").addClass("loading");
 
-	    var lang = "sv"; /// change to default
+
+		var application = this.container.lookup('application:main');
+		var lang = application.get("locale");
+		if (!lang) {
+			lang = application.get('defaultLocale');
+		}
 	    if (sessionStorage.getItem('lang')) {
 	      lang = sessionStorage.getItem('lang');
 	    }
@@ -32,10 +37,10 @@ export default Ember.Route.extend({
 		}
 		for (var i = 0; i < 7; i++) {
 			 var date = moment().add(i, 'days');
-			 var dateStr = date.locale(local).format(application.get("dateFormatString")) + " (" + date.locale(local).format('dddd') + ")";
+			 var dateStr = date.locale(local).format(application.get("dateFormatString"));
 			 var t = this.container.lookup('utils:t');
 			 if (i === 0) {
-			 	dateStr = t('filter.dateStrings.today');
+			 	dateStr =  t('filter.dateStrings.today');
 			 }
 			 else if (i === 1) {
 			 	dateStr = t('filter.dateStrings.tomorrow');

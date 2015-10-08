@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
 			local = application.get('defaultLocale');
 		}
 		var date =	moment(tempDate);
-		var dateStr = date.locale(local).format("dddd, Do MMM");
+		var dateStr = date.locale(local).format(application.get("dateFormatString"));
 		return dateStr;
 	}.property('model.bookings'),
 

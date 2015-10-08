@@ -10,9 +10,9 @@
 						<div class="info">
 							<div class="time-countdown">
 								{{#if hasStarted}}
-									<i class="fa fa-clock-o danger"></i> {{t 'myBookings.countdownStrings.startedAgoBefore'}} {{startsInMinutes}} {{t 'myBookings.countdownStrings.startedAgoAfter'}}
+									<div class="status"><span {{bind-attr class=":circle booking.status"}}></span> </div>{{t 'myBookings.countdownStrings.startedAgoBefore'}} {{startsInMinutes}} {{t 'myBookings.countdownStrings.startedAgoAfter'}}
 								{{else}}
-									<i class="fa fa-clock-o warning"></i> {{t 'myBookings.countdownStrings.startInBefore'}}  {{startsInMinutes}} {{t 'myBookings.countdownStrings.startInAfter'}} 
+									<div class="status"><span {{bind-attr class=":circle booking.status"}}></span></div> {{t 'myBookings.countdownStrings.startInBefore'}}  {{startsInMinutes}} {{t 'myBookings.countdownStrings.startInAfter'}} 
 								{{/if}}
 
 

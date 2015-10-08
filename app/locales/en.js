@@ -52,7 +52,8 @@ export default {
     },
 
     myBookings: {
-      header: 'My bookings',
+      headerMyConfirmableBookings: 'Bookings to confirm',
+      headerMyBookings: 'My bookings',
       cancelBookingButton: 'Cancel',
       confirmBookingButton: 'Confirm',
       noBookingsMessage: 'You have no bookings',

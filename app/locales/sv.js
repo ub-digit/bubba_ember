@@ -51,7 +51,8 @@ export default {
     },
 
     myBookings: {
-      header: 'Mina bokningar',
+      headerMyConfirmableBookings: 'Bokningar att kvittera',
+      headerMyBookings: 'Mina bokningar',
       cancelBookingButton: 'Avboka',
       confirmBookingButton: 'Kvittera',
       noBookingsMessage: 'Du har inga bokningar',

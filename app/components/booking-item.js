@@ -78,7 +78,13 @@ export default Ember.Component.extend({
 			}
 		},
 
+
+
 		executeBooking: function(id) {
+			if (!this.get("user.librarycardNumber") || !this.get("user.personalSecurityNumber") || !this.get("user.signature")) {
+				this.set("error.auth_error", true);
+				return;
+			}
 			var that = this;
 			var successHandler = function(model) {
 				// save logininfo to local

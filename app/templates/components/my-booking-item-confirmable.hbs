@@ -14,9 +14,6 @@
 								{{else}}
 									<div class="status"><span {{bind-attr class=":circle booking.status"}}></span></div> {{t 'myBookings.countdownStrings.startInBefore'}}  {{startsInMinutes}} {{t 'myBookings.countdownStrings.startInAfter'}} 
 								{{/if}}
-
-
-
 							</div>
 							<div class="date">
 								{{getDate}} {{booking.pass_start}} - {{booking.pass_stop}}

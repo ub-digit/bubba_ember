@@ -44,15 +44,16 @@ export default {
     loginForm: {
       outletHeader: "Sign in",
       header: 'Book this room',
-      patrionCardNumber: 'GU Card number',
-      personalSecurityNumber: 'Password',
-      signature: 'Signature',
+      patrionCardNumber: 'GU Card number *',
+      personalSecurityNumber: 'Password *',
+      signature: 'Signature *',
       bookButton: 'Book',
       okButton: 'Ok',
     },
 
     myBookings: {
       headerMyConfirmableBookings: 'Bookings to confirm',
+      headerMyConfirmedBookings: 'Bookings that are confirmed',
       headerMyBookings: 'My bookings',
       cancelBookingButton: 'Cancel',
       confirmBookingButton: 'Confirm',
@@ -70,9 +71,9 @@ export default {
       checkLoginInformation: 'Check your data!',
     },
     success: {
-      bookSuccess: 'This session has now been booked for you.',
-      cancelBookingSuccess: 'This booking has been cancelled.',
-      confirmSuccess: 'This booking has now been confirmed',
+      bookSuccess: 'This room has now been booked for you.',
+      cancelBookingSuccess: 'This room has been cancelled.',
+      confirmSuccess: 'This room has now been confirmed',
     }
 
 

@@ -6,7 +6,11 @@ export default Ember.Controller.extend({
 		personalSecurityNumber: null,
 		signature: null
 	},
-	librariesSorted: function() {
+
+	sortOption: ['display_title:asc'],
+	librariesSortedAsc: Ember.computed.sort('librariesSorted', 'sortOption'),
+
+	librariesSorted: function() { 
 		var application = this.container.lookup('application:main');
 		var local = application.get("locale");
 		if (!local) {
@@ -23,10 +27,8 @@ export default Ember.Controller.extend({
 				arr.push({'id': item.id.toString(), 'display_title': item.swedish_name});
 			});
 		}
-		return arr;//this.get("libraries");
+		return arr;
 	}.property('libraries'),
-
-
 
 	actions: {
 		toggleLang: function() {

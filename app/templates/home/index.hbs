@@ -3,7 +3,7 @@
 	<div class="col-xs-12 col-md-6">
 		<label>{{t 'filter.dropdown.libraries.prompt'}}</label>
 		{{view Ember.Select class="form-control"
-	       content=controllers.application.librariesSorted
+	       content=controllers.application.librariesSortedAsc
 	       optionValuePath="content.id"
 	       optionLabelPath="content.display_title"
 	       value=selectedLibrary

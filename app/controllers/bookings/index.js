@@ -8,8 +8,12 @@ export default Ember.Controller.extend({
 		return this.get("model").filterBy("status",3);
 	}.property('model.@each'),
 
-	actions: {
+	modelForAlreadyConfirmed: function() {
+		return this.get("model").filterBy("status",4);
+	}.property('model.@each'),	
 
-	}
+	modelForBookedButNotAvailibleToConfirm: function() {
+		return this.get("model").filterBy("status",2);		
+	}.property('model.@each'),
 
 });

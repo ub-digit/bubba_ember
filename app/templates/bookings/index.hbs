@@ -1,6 +1,8 @@
 <div id="my-bookings">
 	<div class="header">
+		{{#if modelForConfirm}}
 		{{t 'myBookings.headerMyConfirmableBookings'}}
+		{{/if}}
 	</div>
 	<ul class="list-unstyled list-of-confirmables">
 	{{#each item in modelForConfirm}}
@@ -9,11 +11,25 @@
 		</li>
 	{{/each}}
 	</ul>
+
+	<div class="header">
+		{{#if modelForAlreadyConfirmed}}
+		{{t 'myBookings.headerMyConfirmedBookings'}}
+		{{/if}}
+	</div>
+	<ul class="list-unstyled list-of-confirmables">
+	{{#each item in modelForAlreadyConfirmed}}
+		<li>
+			{{my-booking-item-confirmable booking=item libraries=controllers.application.librariesSorted reloadModel='reloadModel'}}
+		</li>
+	{{/each}}
+	</ul>
+
 	<div class="header">
 		{{t 'myBookings.headerMyBookings'}}
 	</div>
 	<ul class="list-unstyled accordian-list">
-		{{#each item in model}}
+		{{#each item in modelForBookedButNotAvailibleToConfirm}}
 			<li {{bind-attr class="item.status"}}>
 				{{my-booking-item booking=item libraries=controllers.application.librariesSorted isExpandedId=isExpandedId reloadModel='reloadModel'}}
 			</li>

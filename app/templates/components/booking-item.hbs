@@ -72,15 +72,15 @@
 						</div>
 						<div class="form-group">
 							<label class="sr-only">{{t 'loginForm.patrionCardNumber'}}</label>
-							{{input type="text" class="form-control cardnumber" placeholder=(t 'loginForm.patrionCardNumber') value=user.librarycardNumber}}
+							{{input type="text" class="form-control cardnumber" placeholder=(t 'loginForm.patrionCardNumber') value=applicationController.user.librarycardNumber}}
 						</div>
 						<div class="form-group">
 							<label class="sr-only">{{t 'loginForm.personalSecurityNumber'}}</label>
-							{{input type="password" class="form-control" placeholder=(t 'loginForm.personalSecurityNumber') value=user.personalSecurityNumber}}
+							{{input type="password" class="form-control" placeholder=(t 'loginForm.personalSecurityNumber') value=applicationController.user.personalSecurityNumber}}
 						</div>
 						<div class="form-group">
 							<label class="sr-only">{{t 'loginForm.signature'}}</label>
-							{{input type="text" class="form-control" placeholder=(t 'loginForm.signature') value=user.signature}}
+							{{input type="text" class="form-control" placeholder=(t 'loginForm.signature') value=applicationController.user.signature}}
 						</div>
 						{{#if error.auth_error}}
 							<div class="alert alert-danger" role="alert">

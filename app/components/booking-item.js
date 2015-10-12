@@ -21,9 +21,9 @@ export default Ember.Component.extend({
 
 	saveToLocalStorage: function() {
 		if(typeof(Storage) !== "undefined") {
-			sessionStorage.setItem("librarycardNumber", this.get("user.librarycardNumber"));
-			sessionStorage.setItem("personalSecurityNumber", this.get("user.personalSecurityNumber"));			
-			sessionStorage.setItem("signature", this.get("user.signature"));
+			sessionStorage.setItem("librarycardNumber", this.get("applicationController.user.librarycardNumber"));
+			sessionStorage.setItem("personalSecurityNumber", this.get("applicationController.user.personalSecurityNumber"));			
+			sessionStorage.setItem("signature", this.get("applicationController.user.signature"));
 		} else {
 			/// dont save it. 
 		}
@@ -39,13 +39,13 @@ export default Ember.Component.extend({
 	},
 
 	isDisabled: function() {
-		if (this.get("user.librarycardNumber") && this.containsNotOnlySpaces(this.get("user.librarycardNumber")) && this.get("user.personalSecurityNumber") && this.containsNotOnlySpaces(this.get("user.personalSecurityNumber")) && this.get("user.signature") && this.containsNotOnlySpaces(this.get("user.signature"))) {
+		if (this.get("applicationController.user.librarycardNumber") && this.containsNotOnlySpaces(this.get("applicationController.user.librarycardNumber")) && this.get("applicationController.user.personalSecurityNumber") && this.containsNotOnlySpaces(this.get("user.personalSecurityNumber")) && this.get("user.signature") && this.containsNotOnlySpaces(this.get("user.signature"))) {
 			return false;
 		}
 		else {
 			return true;
 		}
-	}.property('user.librarycardNumber','user.personalSecurityNumber','user.signature'),
+	}.property('applicationController.user.librarycardNumber','applicationController.user.personalSecurityNumber','applicationController.user.signature'),
 
 	actions: {
 		toggleExpanded: function() {
@@ -58,9 +58,9 @@ export default Ember.Component.extend({
 			else {
 				this.set("isExpandedId", this.get("room.id"));
 				if(typeof(Storage) !== "undefined") {
-					this.set("user.librarycardNumber", sessionStorage.getItem("librarycardNumber"));
-					this.set("user.personalSecurityNumber",sessionStorage.getItem("personalSecurityNumber"));			
-					this.set("user.signature", sessionStorage.getItem("signature"));
+					this.set("applicationController.user.librarycardNumber", sessionStorage.getItem("librarycardNumber"));
+					this.set("applicationController.user.personalSecurityNumber",sessionStorage.getItem("personalSecurityNumber"));			
+					this.set("applicationController.user.signature", sessionStorage.getItem("signature"));
 				}
 				// reset error message 
 				this.set("error.pass_unavail_error", null);
@@ -81,7 +81,7 @@ export default Ember.Component.extend({
 
 
 		executeBooking: function(id) {
-			if (!this.get("user.librarycardNumber") || !this.get("user.personalSecurityNumber") || !this.get("user.signature")) {
+			if (!this.get("applicationController.user.librarycardNumber") || !this.get("applicationController.user.personalSecurityNumber") || !this.get("applicationController.user.signature")) {
 				this.set("error.auth_error", true);
 				return;
 			}
@@ -91,8 +91,13 @@ export default Ember.Component.extend({
 				that.saveToLocalStorage();
 				that.set("room", model);
 				that.set("showReciept", true);
-
-
+				if (that.get("applicationController.numberOfBookings")) {
+					var temp = that.get("applicationController.numberOfBookings") + 1; 
+				} 
+				else {
+					var temp = that.get("applicationController.numberOfBookings");
+				}
+				that.set("applicationController.numberOfBookings", temp);
 			};
 			var errorHandler = function(error) {
 				//that.set("error", error.error.code);
@@ -110,7 +115,7 @@ export default Ember.Component.extend({
 				}
 
 			};
-			this.store.save('booking',{id: id} , {'username': this.get("user.librarycardNumber"), 'password': this.get("user.personalSecurityNumber"), 'signature': this.get("user.signature"), 'cmd': 'book'}).then(successHandler, errorHandler);
+			this.store.save('booking',{id: id} , {'username': this.get("applicationController.user.librarycardNumber"), 'password': this.get("applicationController.user.personalSecurityNumber"), 'signature': this.get("applicationController.user.signature"), 'cmd': 'book'}).then(successHandler, errorHandler);
 		}
 	}
 });

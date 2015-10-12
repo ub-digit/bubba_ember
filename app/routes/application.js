@@ -25,7 +25,11 @@ export default Ember.Route.extend({
 	},
 	model: function() {
 		// get list of libraries
-		return this.store.find('location');	
+		var libraryCardnumber = sessionStorage.getItem("librarycardNumber");
+		var password =  sessionStorage.getItem("personalSecurityNumber");
+		return Ember.RSVP.hash({
+      		locations:  this.store.find('location'),
+    	});
 	},
 
 	generateDates: function() {
@@ -50,8 +54,8 @@ export default Ember.Route.extend({
 		return dates;
 	},
 
-	setupController: function(controller, model) {
-		controller.set("libraries", model);
+	setupController: function(controller, models) {
+		controller.set("libraries", models.locations);
 		controller.set("dates", this.generateDates());
 	}
 });

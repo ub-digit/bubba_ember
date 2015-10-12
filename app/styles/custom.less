@@ -1,6 +1,15 @@
 #spinner {
 	display: none;
 }
+html {
+	background: red;
+}
+
+body {
+	margin-top: 40px;
+	overflow-y: scroll;
+}
+
 
 
 #main-header {
@@ -29,11 +38,6 @@
 			color: #fff;
 		}
 	}
-}
-
-body {
-	margin-top: 40px;
-	overflow-y: scroll;
 }
 
 /* main navigaton */
@@ -91,7 +95,7 @@ nav {
 		border-bottom: 1px solid #ccc;
 		padding: 10px 5px;
 		&:first-child {
-			border-top: 1px solid #ccc;
+			//border-top: 1px solid #ccc;
     	}
 
 		#room-component-item {
@@ -125,21 +129,7 @@ nav {
 
 
 		    			.circle {
-		    				&.\31 {
-		    					background: @brand-success;
-		    				}
-		    				&.\32 {
-		    					background: @brand-danger;
-		    				}
-		    				&.\33 {
-		    					background: @brand-warning;
-		    				}
-		    				&.\34 {
-		    					background: @brand-danger;
-		    				}
-		    				&.\35 {
-		    					background: @brand-danger;
-		    				}
+	
 		    				margin: 0 auto;
 		    				margin-bottom: 5px;
 		    				display: block;
@@ -205,7 +195,9 @@ nav {
     		.header {
     			text-align: center;
     			font-weight: bolder;
-    			margin-bottom: 10px;
+    			@media (max-width: @screen-sm-max) {
+    				margin-bottom: 10px;
+    			}
     		}
 
     		.btn-area {
@@ -225,7 +217,12 @@ nav {
     .btn-area {
     	margin-bottom: 20px;
     	margin-top: 20px;
+
+    	.btn {
+    		margin-bottom: 10px;
+    	}
     }
+
 	.booking-item {
 		.indicator {
 			margin-top: 10px;
@@ -279,7 +276,13 @@ nav {
 				border-top: 1px solid #ccc;
 		    }
 		}
-		margin-bottom: 20px;
+		margin-bottom: 40px;
+		.circle {
+			&.\34 {
+				background: @orange;
+			}
+		}
+
 
 
 	}
@@ -341,19 +344,19 @@ nav {
 
 .circle {
 	&.\31 {
-		background: @brand-success;
+		background: @green;
 	}
 	&.\32 {
-		background: @brand-danger;
+		background: @red;
 	}
 	&.\33 {
-		background: @brand-warning;
+		background: @yellow;
 	}
 	&.\34 {
-		background: @brand-danger;
+		background: @red;
 	}
 	&.\35 {
-		background: @brand-danger;
+		background: @red;
 	}
 	margin: 0 auto;
 	margin-bottom: 5px;

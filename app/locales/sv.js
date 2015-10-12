@@ -51,16 +51,16 @@ export default {
     },
 
     myBookings: {
-      headerMyConfirmableBookings: 'Bokningar att kvittera',
-      headerMyConfirmedBookings: 'Kvitterade bokningar',
-      headerMyBookings: 'Mina bokningar',
+      headerMyConfirmableBookings: 'Kan kvitteras',
+      headerMyConfirmedBookings: 'Pågågende och kvitterade',
+      headerMyBookings: 'Bokningar',
       cancelBookingButton: 'Avboka',
       confirmBookingButton: 'Kvittera',
       noBookingsMessage: 'Du har inga bokningar',
       countdownStrings: {
-        startInBefore: 'Börjar om',
+        startInBefore: 'Startar',
         startInAfter: 'minuter',
-        startedAgoBefore: 'Började för',
+        startedAgoBefore: 'Startade',
         startedAgoAfter: 'minuter sedan',
       },
     },

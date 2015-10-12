@@ -11,8 +11,18 @@ export default myBookingItem.extend({
 		startStamp.minute(timeArr[1]);
 		return startStamp;
 	},
-	startsInMinutes: function() {
+	startsIn: function() {
+		var application = this.container.lookup('application:main');
+		var local = application.get("locale");
+		if (!local) {
+			local = application.get('defaultLocale');
+		}
+
+
 		var nowStamp = moment();
+		var startTime = this.getStartTimestamp();
+		var fromNowStr = startTime.locale(local).fromNow();
+		return fromNowStr;
 		var diff = moment.duration(nowStamp.diff(this.getStartTimestamp()));
 		if (diff.get('minutes') < 0) {
 			return diff.get('minutes') *  -1;
@@ -20,6 +30,7 @@ export default myBookingItem.extend({
 		else {
 			return diff.get('minutes');
 		}
+
 
 		
 	}.property('booking'),

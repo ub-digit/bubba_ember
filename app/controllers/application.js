@@ -10,6 +10,15 @@ export default Ember.Controller.extend({
 	sortOption: ['display_title:asc'],
 	librariesSortedAsc: Ember.computed.sort('librariesSorted', 'sortOption'),
 
+	getNumberOfBookings: function() {
+		if (this.get("numberOfBookings")) {
+			return this.get("numberOfBookings");
+		}
+		else {
+			return null;
+		}
+	}.property("bookings"),
+
 	librariesSorted: function() { 
 		var application = this.container.lookup('application:main');
 		var local = application.get("locale");

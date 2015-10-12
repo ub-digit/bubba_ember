@@ -2,6 +2,7 @@ import Ember from 'ember';
 import ResetScroll from '../../mixins/reset-scroll';
 
 export default Ember.Route.extend(ResetScroll, {
+	needs:['application'],
 	isLoggedIn: function() {
 		if (sessionStorage.getItem("librarycardNumber") && sessionStorage.getItem("personalSecurityNumber"))  {
 			return true;
@@ -27,6 +28,11 @@ export default Ember.Route.extend(ResetScroll, {
 	model: function() {
 		// get the data from store here
 		return this.store.find("booking" ,{username: sessionStorage.getItem("librarycardNumber"), password: sessionStorage.getItem("personalSecurityNumber")});
+	},
+
+	setupController: function(controller, model) {
+		controller.set("model", model);
+		this.controllerFor("application").set("numberOfBookings", model.length);
 	},
 
 	exit: function() {

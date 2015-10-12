@@ -99,6 +99,7 @@ export default Ember.Component.extend({
 				that.set("showConfirmSuccess", true);
 				that.set('booking.status', response.status);
 				that.set("booking.confirmable", response.confirmable);
+				
 				//that.sendAction('reloadModel', response.id);
 			};
 			var errorHandler = function() {

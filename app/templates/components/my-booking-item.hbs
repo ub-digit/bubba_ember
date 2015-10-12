@@ -70,12 +70,9 @@
 			</div>
 		{{else}}
 			<div class="row">
-				<div class="col-xs-12 center-content btn-area">
-					{{#if booking.confirmable }}
-						<button {{action 'confirmBooking' booking.id}} {{bind-attr class=":btn :btn-primary booking.status"}}>{{t 'myBookings.confirmBookingButton'}}</button>
-					{{/if}}
+				<div class="col-xs-12 col-sm-4 col-sm-offset-4 center-content btn-area">
 					{{#if booking.cancelable}}
-						<button class="btn btn-danger" {{action 'cancelBooking' booking.id}}>{{t 'myBookings.cancelBookingButton'}}</button>
+						<button class="btn btn-danger btn-block" {{action 'cancelBooking' booking.id}}>{{t 'myBookings.cancelBookingButton'}}</button>
 					{{/if}}
 				</div>
 			</div>

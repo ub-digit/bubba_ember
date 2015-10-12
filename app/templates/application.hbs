@@ -9,7 +9,13 @@
 		<nav class="col-xs-12 col-md-3">
 			<ul class="list-group">
 				<li class="list-group-item">{{#link-to 'home'}}{{t 'mainNav.nav1'}}{{/link-to}}</li>
-				<li class="list-group-item">{{#link-to 'bookings'}}{{t 'mainNav.nav2'}}{{/link-to}}</li>
+				<li class="list-group-item">{{#link-to 'bookings'}}{{t 'mainNav.nav2'}} 
+				{{#if numberOfBookings }}
+					<span class="badge pull-right">{{numberOfBookings}}</span>
+				{{/if}}
+				{{/link-to}}
+
+				</li>
 			</ul>
 		</nav>
 

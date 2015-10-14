@@ -1,5 +1,11 @@
 export default {
   swithchToLanguageString: 'Svenska',
+  statuses: {
+    status_1: 'Available',
+    status_2: 'status 2',
+    status_3: 'Occupied - wating for confirmation',
+    status_4: 'Occupied',
+  },
 
   header: {
     title: 'Book a group study room'

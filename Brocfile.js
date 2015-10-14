@@ -9,7 +9,7 @@ var app = new EmberApp({
 
 	storeConfigInMeta: false,
 	fingerprint: {
-		exclude: ['js', 'css']
+	/*	exclude: ['js', 'css']*/
 	}
 
 });
@@ -31,6 +31,7 @@ app.import("bower_components/moment/min/moment-with-locales.min.js");
 app.import("bower_components/moment/locale/sv.js");
 app.import("bower_components/moment/locale/en-gb.js");
 app.import("bower_components/jquery.scrollTo/jquery.scrollTo.min.js");
+app.import("bower_components/bootstrap/js/tooltip.js");
 
 
 app.import("bower_components/components-font-awesome/css/font-awesome.min.css");

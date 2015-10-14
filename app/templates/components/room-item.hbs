@@ -17,7 +17,7 @@
 			<ul class="room-availible-intervals-list list-unstyled">
 				{{#each item in room.bookings}}
 					<li>
-						<span {{bind-attr class=":circle item.status"}}></span>
+						<span {{bind-attr class=":circle item.status"}} data-toggle="tooltip" data-placement="right" title="{{get-status-string item.status}}"></span>
 						{{item.pass_start}}
 					</li>
 				{{/each}}

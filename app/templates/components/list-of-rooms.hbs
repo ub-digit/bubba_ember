@@ -1,5 +1,5 @@
 
-<div class="header">{{t 'room.listOfRoomsHeader'}} {{selectedLibrary}} {{convert-to-lower-caps selectedDateString}}</div>
+<div class="header">{{t 'room.listOfRoomsHeader'}} {{return-safe-string selectedLibrary}} {{convert-to-lower-caps selectedDateString}}</div>
 <ul class="list-unstyled list-rooms">
 	{{#each item in rooms}} 
 		<li>

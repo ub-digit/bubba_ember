@@ -1,5 +1,11 @@
 export default {
   swithchToLanguageString: 'English',
+  statuses: {
+    status_1: 'Ledigt',
+    status_2: 'status 2',
+    status_3: 'Upptaget - väntar på kvittering',
+    status_4: 'Upptaget',
+  },
   header: {
     title: 'Grupprumsbokning'
   },

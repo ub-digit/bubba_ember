@@ -11,8 +11,8 @@ export default {
     title: 'Book a group study room'
   },
   mainNav: {
-    nav1: 'Rooms',
-    nav2: 'My bookings'
+    nav1: 'Book a room',
+    nav2: 'Confirm & cancel'
   },
   filter: {
     dropdown: {

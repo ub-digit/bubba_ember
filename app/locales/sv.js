@@ -7,11 +7,11 @@ export default {
     status_4: 'Upptaget',
   },
   header: {
-    title: 'Grupprumsbokning'
+    title: 'Boka grupprum'
   },
   mainNav: {
-    nav1: 'Grupprum',
-    nav2: 'Mina bokningar'
+    nav1: 'Boka grupprum',
+    nav2: 'Kvittera & avboka'
   },
   filter: {
     dropdown: {

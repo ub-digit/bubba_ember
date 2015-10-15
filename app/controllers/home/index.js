@@ -18,7 +18,12 @@ export default Ember.Controller.extend({
 
 	getSelectedLibraryName: function() {
 		var item = this.get("controllers.application").get("librariesSorted").findBy("id", this.get("selectedLibrary"))
-		return item.display_title;
+		if (item) {
+			return item.display_title;
+		}
+		else {
+			return null;
+		}
 	}.property('selectedLibrary'),
 
 	getSelectedDateString: function() {

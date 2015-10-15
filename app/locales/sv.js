@@ -2,17 +2,17 @@ export default {
   swithchToLanguageString: 'English',
   statuses: {
     status_1: 'Ledigt',
-    status_2: 'status 2',
+    status_2: 'Upptaget',
     status_3: 'Upptaget - väntar på kvittering',
     status_4: 'Upptaget',
-    status_5: 'status 5',
+    status_5: 'Upptaget',
   },
   header: {
     title: 'Boka grupprum'
   },
   mainNav: {
     nav1: 'Boka grupprum',
-    nav2: 'Kvittera & avboka'
+    nav2: 'Kvittera och avboka'
   },
   filter: {
     dropdown: {

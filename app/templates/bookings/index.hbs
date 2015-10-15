@@ -1,40 +1,45 @@
+<h2 class="center">{{t 'mainNav.nav2'}}</h2>
 <div id="my-bookings">
-	<div class="header">
-		{{#if modelForConfirm}}
-		{{t 'myBookings.headerMyConfirmableBookings'}}
-		{{/if}}
-	</div>
-	<ul class="list-unstyled list-of-confirmables">
-	{{#each item in modelForConfirm}}
-		<li>
-			{{my-booking-item-confirmable booking=item libraries=controllers.application.librariesSorted reloadModel='reloadModel'}}
-		</li>
-	{{/each}}
-	</ul>
-
-	<div class="header">
-		{{#if modelForAlreadyConfirmed}}
-		{{t 'myBookings.headerMyConfirmedBookings'}}
-		{{/if}}
-	</div>
-	<ul class="list-unstyled list-of-confirmables">
-	{{#each item in modelForAlreadyConfirmed}}
-		<li>
-			{{my-booking-item-confirmable booking=item libraries=controllers.application.librariesSorted reloadModel='reloadModel'}}
-		</li>
-	{{/each}}
-	</ul>
-
-	<div class="header">
-		{{t 'myBookings.headerMyBookings'}}
-	</div>
-	<ul class="list-unstyled accordian-list">
-		{{#each item in modelForBookedButNotAvailibleToConfirm}}
-			<li {{bind-attr class="item.status"}}>
-				{{my-booking-item booking=item libraries=controllers.application.librariesSorted isExpandedId=isExpandedId reloadModel='reloadModel'}}
+	{{#if modelForConfirm}}
+		<div class="header">	
+			{{t 'myBookings.headerMyConfirmableBookings'}}
+		</div>
+		<ul class="list-unstyled list-of-confirmables">
+		{{#each item in modelForConfirm}}
+			<li>
+				{{my-booking-item-confirmable booking=item libraries=controllers.application.librariesSorted reloadModel='reloadModel'}}
 			</li>
-		{{else}}
-			<p>{{t 'myBookings.noBookingsMessage'}}</p>
 		{{/each}}
-	</ul>
+		</ul>
+	{{/if}}
+
+	{{#if modelForAlreadyConfirmed}}
+		<div class="header">
+			{{t 'myBookings.headerMyConfirmedBookings'}}
+		</div>
+		<ul class="list-unstyled list-of-confirmables">
+		{{#each item in modelForAlreadyConfirmed}}
+			<li>
+				{{my-booking-item booking=item libraries=controllers.application.librariesSorted reloadModel='reloadModel'}}
+			</li>
+		{{/each}}
+		</ul>
+	{{/if}}
+
+	{{#if modelForBookedButNotAvailibleToConfirm}}
+		<div class="header">
+			{{t 'myBookings.headerMyBookings'}}
+		</div>
+		<ul class="list-unstyled accordian-list">
+			{{#each item in modelForBookedButNotAvailibleToConfirm}}
+				<li {{bind-attr class="item.status"}}>
+					{{my-booking-item booking=item libraries=controllers.application.librariesSorted isExpandedId=isExpandedId reloadModel='reloadModel'}}
+				</li>
+			{{/each}}
+		</ul>
+	{{/if}}
+
+	{{#unless model}}
+		<p class="center">{{t 'myBookings.noBookingsMessage'}}</p>
+	{{/unless}}
 </div>

@@ -1,8 +1,14 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	needs: ['application'],
+	needs: ['application', 'home'],
 	isExpandedId: null, 
+
+
+	getSelectedLibraryName: function() {
+		return this.get("controllers.application").get("librariesSorted").findBy("id", this.model.location_id.toString()).display_title;
+	}.property('controllers.application.librariesSorted'),
+
 
 	getDate: function() {
 		var tempDate = this.get("model.bookings.firstObject.pass_day");

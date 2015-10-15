@@ -2,10 +2,10 @@ export default {
   swithchToLanguageString: 'Svenska',
   statuses: {
     status_1: 'Available',
-    status_2: 'status 2',
+    status_2: 'Booked',
     status_3: 'Occupied - wating for confirmation',
     status_4: 'Occupied',
-    status_5: 'status 5',
+    status_5: 'Booked',
   },
 
   header: {
@@ -13,7 +13,7 @@ export default {
   },
   mainNav: {
     nav1: 'Book a room',
-    nav2: 'Confirm & cancel'
+    nav2: 'Confirm and cancel'
   },
   filter: {
     dropdown: {

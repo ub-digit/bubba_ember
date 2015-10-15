@@ -9,7 +9,11 @@ export default Ember.Controller.extend({
 	}.property('model.@each'),
 
 	modelForAlreadyConfirmed: function() {
-		return this.get("model").filterBy("status",4);
+		return this.get("model").filter(function(item) {
+			if ((item.status === 4) || (item.status === 5)) {
+				return item;
+			}
+		});
 	}.property('model.@each'),	
 
 	modelForBookedButNotAvailibleToConfirm: function() {

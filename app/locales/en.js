@@ -5,6 +5,7 @@ export default {
     status_2: 'status 2',
     status_3: 'Occupied - wating for confirmation',
     status_4: 'Occupied',
+    status_5: 'status 5',
   },
 
   header: {

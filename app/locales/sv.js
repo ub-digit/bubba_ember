@@ -5,6 +5,7 @@ export default {
     status_2: 'status 2',
     status_3: 'Upptaget - väntar på kvittering',
     status_4: 'Upptaget',
+    status_5: 'status 5',
   },
   header: {
     title: 'Boka grupprum'

@@ -10,7 +10,7 @@
 	<div class="row">
 		<div class="room-info col-xs-12">
 			<div class="library">
-			{{getSelectedLibraryName}}
+			{{return-safe-string getSelectedLibraryName}}
 			</div>
 			<div class="room-title">
 				{{model.name}}

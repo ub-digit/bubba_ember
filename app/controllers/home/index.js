@@ -40,12 +40,17 @@ export default Ember.Controller.extend({
 	postStats: function() {
 		var selectedLibraryId = this.get("selectedLibrary") * 1;
 		var selectedDayIndex = this.get("selectedDate");
-		var library = this.get("controllers.application").get("libraries").findBy("id", selectedLibraryId)
-		if (window.dataLayer) {
-	        window.dataLayer.push({
-	          'libraryName' : library.swedish_name,
-	          'day' : selectedDayIndex
-	        });
+		if (this.get("controllers.application").get("libraries")) {
+			var library = this.get("controllers.application").get("libraries").findBy("id", selectedLibraryId)
+			if (library) {
+				if (window.dataLayer) {
+			        window.dataLayer.push({
+			          'libraryName' : library.swedish_name,
+			          'day' : selectedDayIndex
+			        });
+				}
+			}
+
 		}
 	}.observes('selectedDate', 'selectedLibrary')
 

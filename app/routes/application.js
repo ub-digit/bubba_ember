@@ -22,6 +22,9 @@ export default Ember.Route.extend({
 	},
 	afterModel: function() {
 		Ember.$("#ember-app-bubba-cli").removeClass("loading");
+		// update documenttitle 
+		var t = this.container.lookup('utils:t');
+		document.title = t('header.title'); 
 	},
 	model: function() {
 		// get list of libraries

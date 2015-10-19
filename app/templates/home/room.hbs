@@ -36,7 +36,7 @@
 		<ul class="list-bookings accordian-list list-unstyled">
 			{{#each item in model.bookings}}
 				<li>
-					{{booking-item room=item isExpandedId=isExpandedId applicationController=controllers.application}}
+					{{booking-item name=model.name room=item isExpandedId=isExpandedId applicationController=controllers.application}}
 				</li>
 			{{else}}
 				<p>{{t 'filter.noResultForActiveFilter'}}</p>

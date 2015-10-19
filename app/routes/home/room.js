@@ -10,10 +10,13 @@ export default Ember.Route.extend(ResetScroll,{
 	},
 	
 	model: function(params) {
+
+		this.params = params;
 		return this.store.find('booking_object', {id:params.id, day: params.day});
 	},
 	setupController: function(controller, model) {
 		controller.set("model", model);
+		controller.set("dayIndex", this.params.day);
 		var bookings = [];
 		model.bookings.forEach(function(item) {
 			bookings.push(item);

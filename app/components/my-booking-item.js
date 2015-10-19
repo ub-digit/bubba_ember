@@ -87,6 +87,15 @@ export default Ember.Component.extend({
 			var that = this;
 			var successHandler = function(response) {
 				that.sendAction('reloadModel', response.id);
+				if (window.dataLayer) {
+			        window.dataLayer.push({
+			          'event' : 'GAEvent',
+			          'eventCategory' : 'Group study rooms',
+			          'eventAction' : 'Room canceled',
+			          'eventLabel' : that.get("booking.booking_object.name"),
+			          'eventValue' : null
+			        });
+				}
 			};
 			var errorHandler = function() {
 				// hanlde error	
@@ -99,6 +108,15 @@ export default Ember.Component.extend({
 				that.set("showConfirmSuccess", true);
 				that.set('booking.status', response.status);
 				that.set("booking.confirmable", response.confirmable);
+				if (window.dataLayer) {
+				        window.dataLayer.push({
+				          'event' : 'GAEvent',
+				          'eventCategory' : 'Group study rooms',
+				          'eventAction' : 'Room confirmed',
+				          'eventLabel' : that.get("booking.booking_object.name"),
+				          'eventValue' : null
+				        });
+				}
 				
 				//that.sendAction('reloadModel', response.id);
 			};

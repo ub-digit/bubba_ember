@@ -98,6 +98,16 @@ export default Ember.Component.extend({
 					var temp = that.get("applicationController.numberOfBookings");
 				}
 				that.set("applicationController.numberOfBookings", temp);
+
+				if (window.dataLayer) {
+			        window.dataLayer.push({
+			          'event' : 'GAEvent',
+			          'eventCategory' : 'Group study rooms',
+			          'eventAction' : 'Room booked',
+			          'eventLabel' : that.get("name"),
+			          'eventValue' : null
+			        });
+				}
 			};
 			var errorHandler = function(error) {
 				//that.set("error", error.error.code);

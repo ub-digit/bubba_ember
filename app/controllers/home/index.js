@@ -11,6 +11,7 @@ export default Ember.Controller.extend({
 			return false;
 		}
 	}.property('selectedLibrary'),
+	
 
 	updateLocalStorage: function() {
 		localStorage.setItem("latestVisited", this.get("selectedLibrary"));
@@ -35,4 +36,17 @@ export default Ember.Controller.extend({
 			return "";
 		}
 	}.property('selectedDate'),
+
+	postStats: function() {
+		var selectedLibraryId = this.get("selectedLibrary") * 1;
+		var selectedDayIndex = this.get("selectedDate");
+		var library = this.get("controllers.application").get("libraries").findBy("id", selectedLibraryId)
+		if (window.dataLayer) {
+	        window.dataLayer.push({
+	          'libraryName' : library.swedish_name,
+	          'day' : selectedDayIndex
+	        });
+		}
+	}.observes('selectedDate', 'selectedLibrary')
+
 });

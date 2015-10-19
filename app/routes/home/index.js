@@ -2,7 +2,6 @@ import Ember from 'ember';
 import ResetScroll from '../../mixins/reset-scroll';
 
 export default Ember.Route.extend(ResetScroll,{
-
 	queryParams: {
 		selectedLibrary: { refreshModel: true },
 		selectedDate: { refreshModel: true }
@@ -39,5 +38,6 @@ export default Ember.Route.extend(ResetScroll,{
 		else {
 			this.controllerFor('home.index').set("selectedLibrary", null);
 		}
+
 	}
 });

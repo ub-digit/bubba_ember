@@ -7,6 +7,7 @@ export default Ember.Route.extend(ResetScroll,{
 	},
 	afterModel: function() {
 		Ember.$("#ember-app-bubba-cli").removeClass("loading");
+
 	},
 	
 	model: function(params) {
@@ -23,5 +24,6 @@ export default Ember.Route.extend(ResetScroll,{
 		});
 		model.bookings = bookings;
 		controller.set("model", model);
+
 	}
 });

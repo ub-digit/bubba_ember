@@ -48,6 +48,10 @@ export default Ember.Component.extend({
 	}.property('applicationController.user.librarycardNumber','applicationController.user.personalSecurityNumber','applicationController.user.signature'),
 
 	actions: {
+		logout: function() {
+			this.sendAction('logOut');
+		},
+		
 		toggleExpanded: function() {
 			if (!this.get("room.bookable") && !this.get("isExpanded")) {
 				return;
@@ -88,17 +92,19 @@ export default Ember.Component.extend({
 			var that = this;
 			var successHandler = function(model) {
 				// save logininfo to local
+				Ember.$("#ember-app-bubba-cli").removeClass("loading");
 				that.saveToLocalStorage();
+				that.set("applicationController.isLoggedIn", true);
 				that.set("room", model);
 				that.set("showReciept", true);
+				var temp = null;
 				if (that.get("applicationController.numberOfBookings")) {
-					var temp = that.get("applicationController.numberOfBookings") + 1; 
+					temp = that.get("applicationController.numberOfBookings") + 1; 
 				} 
 				else {
-					var temp = that.get("applicationController.numberOfBookings");
+					temp = 1;
 				}
 				that.set("applicationController.numberOfBookings", temp);
-
 				if (window.dataLayer) {
 			        window.dataLayer.push({
 			          'event' : 'GAEvent',
@@ -111,6 +117,7 @@ export default Ember.Component.extend({
 			};
 			var errorHandler = function(error) {
 				//that.set("error", error.error.code);
+				Ember.$("#ember-app-bubba-cli").removeClass("loading");
 				if (error.error.code === "AUTH_ERROR") {
 					that.set("error.auth_error", true);
 					that.set("isFormPresent", true);
@@ -125,6 +132,7 @@ export default Ember.Component.extend({
 				}
 
 			};
+			Ember.$("#ember-app-bubba-cli").addClass("loading");
 			this.store.save('booking',{id: id} , {'username': this.get("applicationController.user.librarycardNumber"), 'password': this.get("applicationController.user.personalSecurityNumber"), 'signature': this.get("applicationController.user.signature"), 'cmd': 'book'}).then(successHandler, errorHandler);
 		}
 	}

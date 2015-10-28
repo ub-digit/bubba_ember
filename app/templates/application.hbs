@@ -14,8 +14,10 @@
 					<span class="badge pull-right">{{numberOfBookings}}</span>
 				{{/if}}
 				{{/link-to}}
-
 				</li>
+				{{#if isLoggedIn}}
+					<li class="list-group-item"><a href="javascript:void()" {{action 'logOut'}}>{{t 'mainNav.nav3'}} <i class="fa fa-lock pull-right"></i></a></li>
+				{{/if}}
 			</ul>
 		</nav>
 

@@ -18,21 +18,9 @@ export default myBookingItem.extend({
 			local = application.get('defaultLocale');
 		}
 
-
-		var nowStamp = moment();
 		var startTime = this.getStartTimestamp();
 		var fromNowStr = startTime.locale(local).fromNow();
 		return fromNowStr;
-		var diff = moment.duration(nowStamp.diff(this.getStartTimestamp()));
-		if (diff.get('minutes') < 0) {
-			return diff.get('minutes') *  -1;
-		}
-		else {
-			return diff.get('minutes');
-		}
-
-
-		
 	}.property('booking'),
 
 	hasStarted: function() {

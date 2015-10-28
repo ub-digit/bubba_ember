@@ -18,7 +18,7 @@ export default Ember.Controller.extend({
 	}.observes("selectedLibrary"),
 
 	getSelectedLibraryName: function() {
-		var item = this.get("controllers.application").get("librariesSorted").findBy("id", this.get("selectedLibrary"))
+		var item = this.get("controllers.application").get("librariesSorted").findBy("id", this.get("selectedLibrary"));
 		if (item) {
 			return item.display_title;
 		}
@@ -41,7 +41,7 @@ export default Ember.Controller.extend({
 		var selectedLibraryId = this.get("selectedLibrary") * 1;
 		var selectedDayIndex = this.get("selectedDate");
 		if (this.get("controllers.application").get("libraries")) {
-			var library = this.get("controllers.application").get("libraries").findBy("id", selectedLibraryId)
+			var library = this.get("controllers.application").get("libraries").findBy("id", selectedLibraryId);
 			if (library) {
 				if (window.dataLayer) {
 			        window.dataLayer.push({

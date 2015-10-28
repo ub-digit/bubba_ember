@@ -28,8 +28,15 @@ export default Ember.Route.extend(ResetScroll,{
 			return null;
 		}		
 	},
+	sortedItems: function(model){
+	        var items = Ember.ArrayProxy.extend(Ember.SortableMixin).create({content: model});
+	        items.set('sortProperties', ['name']);
+	        return items;
+	},
+
 	setupController: function(controller, model) {
-		controller.set("model", model);
+		var sorted =  this.sortedItems(model);
+		controller.set("model", sorted);
 		var latestVisited = null;
 		if (localStorage.getItem("latestVisited")) {
 			latestVisited = localStorage.getItem("latestVisited");

@@ -1,7 +1,7 @@
 <div {{bind-attr id=room.id}} {{bind-attr class=":booking-item :accordian-item :row room.bookable:bookable:muted"}} {{action 'toggleExpanded'}}>
 	<div class="col-xs-10">
 		<div class="status">
-			<span {{bind-attr class=":circle room.status"}} data-toggle="tooltip" data-placement="right" title="{{get-status-string room.status}}"></span>
+			<span {{bind-attr class=":circle room.status"}} title="{{get-status-string room.status}}"></span>
 		</div>
 		<div class="interval">
 			{{room.pass_start}} - {{room.pass_stop}}
@@ -71,16 +71,17 @@
 							{{t 'loginForm.header'}}
 						</div>
 						<div class="form-group">
-							<label class="sr-only">{{t 'loginForm.patrionCardNumber'}}</label>
-							{{input type="text" class="form-control cardnumber" placeholder=(t 'loginForm.patrionCardNumber') value=applicationController.user.librarycardNumber}}
+							<label>{{t 'loginForm.patrionCardNumber'}}</label>
+							{{input type='number' pattern='[\d]*' class="form-control cardnumber" placeholder=(t 'loginForm.patrionCardNumberExample') value=applicationController.user.librarycardNumber}}
 						</div>
 						<div class="form-group">
-							<label class="sr-only">{{t 'loginForm.personalSecurityNumber'}}</label>
-							{{input type="password" class="form-control" placeholder=(t 'loginForm.personalSecurityNumber') value=applicationController.user.personalSecurityNumber}}
+							<label>{{t 'loginForm.personalSecurityNumber'}}</label>
+							{{input type="password" class="form-control" placeholder=(t 'loginForm.personalSecurityNumberExample') value=applicationController.user.personalSecurityNumber}}
+							<small>{{t 'loginForm.pleaseUseThisFormat'}}</small>
 						</div>
 						<div class="form-group">
-							<label class="sr-only">{{t 'loginForm.signature'}}</label>
-							{{input type="text" class="form-control" placeholder=(t 'loginForm.signature') value=applicationController.user.signature}}
+							<label>{{t 'loginForm.signature'}}</label>
+							{{input type="text" class="form-control" placeholder=(t 'loginForm.signatureExample') value=applicationController.user.signature}}
 						</div>
 						{{#if error.auth_error}}
 							<div class="alert alert-danger" role="alert">
@@ -90,6 +91,10 @@
 						{{/if}}
 						<div class="btn-area form-group">
 							<button id="sumbit-booking-btn" type="submit" {{action 'executeBooking' room.id}} {{bind-attr class=":btn :btn-primary"}}>{{t 'loginForm.bookButton'}}</button>
+						</div>
+						
+						<div class="center-content">
+							<small><a href="javascript:void();" {{action 'logout'}}>{{t 'loginForm.forgetMeLink'}}</a></small>
 						</div>
 					</form>
 

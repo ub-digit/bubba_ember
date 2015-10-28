@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+	needs: ['application'],
 	librarycardNumber: null,
 	personalSecurityNumber: null,
 	error: false,
@@ -29,6 +30,8 @@ export default Ember.Controller.extend({
 			var that = this;
 			var successHandler = function() {
 				that.saveToLocalStorage();
+				that.set("controllers.application.isLoggedIn", true);
+
 				that.transitionToRoute('bookings');
 			};
 			var errorHandler = function() {

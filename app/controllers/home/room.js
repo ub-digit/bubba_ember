@@ -27,6 +27,6 @@ export default Ember.Controller.extend({
 			this.get("model.bookings").forEach(function(item) {
 				item.set('isExpanded', false);
 			});
-		}
+		},
 	}
 });

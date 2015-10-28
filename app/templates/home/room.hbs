@@ -23,6 +23,9 @@
 				{{#if model.has_whiteboard}}
 					, {{t 'room.meta.whiteboard'}}
 				{{/if}}
+				{{#if model.comment}}
+					, {{model.comment}}
+				{{/if}}
 			</div>
 			<div class="date">
 				{{getDate}}
@@ -36,7 +39,7 @@
 		<ul class="list-bookings accordian-list list-unstyled">
 			{{#each item in model.bookings}}
 				<li>
-					{{booking-item name=model.name room=item isExpandedId=isExpandedId applicationController=controllers.application}}
+					{{booking-item name=model.name room=item isExpandedId=isExpandedId applicationController=controllers.application logOut='logOut'}}
 				</li>
 			{{else}}
 				<p>{{t 'filter.noResultForActiveFilter'}}</p>

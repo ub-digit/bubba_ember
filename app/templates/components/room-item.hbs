@@ -1,4 +1,4 @@
-{{#link-to 'home.room' room.id selectedDay}}
+{{#link-to 'home.room' room.id selectedDay class="room-link"}}
 <div class="row" id="room-component-item">
 	<div class="col-xs-10">
 		<div class="room-title">
@@ -11,6 +11,9 @@
 			{{/if}}
 			{{#if room.has_whiteboard}}
 				, {{t 'room.meta.whiteboard'}}
+			{{/if}}
+			{{#if room.comment}}
+				, {{room.comment}}
 			{{/if}}
 		</div>
 		<div class="room-availible-intervals">

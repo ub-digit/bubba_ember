@@ -13,7 +13,8 @@ export default {
   },
   mainNav: {
     nav1: 'Book a room',
-    nav2: 'Confirm and cancel'
+    nav2: 'Confirm and cancel',
+    nav3: 'Log out'
   },
   filter: {
     dropdown: {
@@ -52,10 +53,15 @@ export default {
       outletHeader: "Sign in",
       header: 'Book this room',
       patrionCardNumber: 'GU Card number *',
-      personalSecurityNumber: 'Password *',
+      patrionCardNumberExample: '3300776403',
+      personalSecurityNumber: 'Personal security number *',
+      personalSecurityNumberExample: '7701264975',
+      pleaseUseThisFormat: 'Please use this format 7701264975',
       signature: 'Signature *',
+      signatureExample: 'Art course',
       bookButton: 'Book',
       okButton: 'Ok',
+      forgetMeLink: 'Is this not you? Forget user!'
     },
 
     myBookings: {

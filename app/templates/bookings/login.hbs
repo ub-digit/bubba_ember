@@ -4,11 +4,12 @@
 		<form class="login-form">
 			<div class="form-group">
 				<label>{{t 'loginForm.patrionCardNumber'}}</label>
-				{{input type="text" class="form-control" placeholder=(t 'loginForm.patrionCardNumber') value=librarycardNumber}}
+				{{input type='number' pattern='[\d]*' class="form-control" placeholder=(t 'loginForm.patrionCardNumberExample') value=librarycardNumber}}
 			</div>
 			<div class="form-group">
 				<label>{{t 'loginForm.personalSecurityNumber'}}</label>
-				{{input type='password' class="form-control" placeholder=(t 'loginForm.personalSecurityNumber') value=personalSecurityNumber}}
+				{{input type='password' class="form-control" placeholder=(t 'loginForm.personalSecurityNumberExample') value=personalSecurityNumber}}
+				<small>{{t 'loginForm.pleaseUseThisFormat'}}</small>
 			</div>
 			<div class="form-group">
 				{{#if error}}
@@ -17,6 +18,7 @@
 					  <i class="fa fa-exclamation-triangle"></i> {{t 'error.checkLoginInformation'}}							
 					</div>
 				{{/if}}
+
 			</div>
 			<div class="btn-area form-group center-content">
 				<button id="sumbit-booking-btn" type="submit" {{action 'executeLogin'}} {{bind-attr class=":btn :btn-primary isDisabled:disabled:enabled"}}>{{t 'loginForm.okButton'}}</button>

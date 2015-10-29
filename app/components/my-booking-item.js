@@ -49,7 +49,6 @@ export default Ember.Component.extend({
 		var libs = this.get("libraries");
 		var lib = libs.findBy('id',this.get("booking.booking_object.location_id").toString());
 		if (lib) {
-			var test = decodeURI(lib.display_title);
 			return decodeURI(lib.display_title);
 		}
 		else {
@@ -105,6 +104,7 @@ export default Ember.Component.extend({
 		confirmBooking: function(id) {
 			var that = this;
 			var successHandler = function(response) {
+				that.sendAction('reloadModel', response.id);
 				that.set("showConfirmSuccess", true);
 				that.set('booking.status', response.status);
 				that.set("booking.confirmable", response.confirmable);

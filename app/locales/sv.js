@@ -12,7 +12,8 @@ export default {
   },
   mainNav: {
     nav1: 'Boka grupprum',
-    nav2: 'Kvittera och avboka'
+    nav2: 'Kvittera och avboka',
+    nav3: 'Logga ut'
   },
   filter: {
     dropdown: {
@@ -51,10 +52,15 @@ export default {
       outletHeader: "Logga in",
       header: 'Boka det här rummet',
       patrionCardNumber: 'Nummer på GU-kort *',
+      patrionCardNumberExample: '3300776403',
       personalSecurityNumber: 'Personnummer *',
+      personalSecurityNumberExample: '7701264975',
+      pleaseUseThisFormat: 'Använd detta format 7701264975',
       signature: 'Signatur *',
+      signatureExample: 'Konstgruppen',
       bookButton: 'Boka',
       okButton: 'OK',
+      forgetMeLink: 'Är detta inte du? Glöm användaren!'
     },
 
     myBookings: {

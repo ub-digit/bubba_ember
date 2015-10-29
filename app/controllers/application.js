@@ -7,6 +7,8 @@ export default Ember.Controller.extend({
 		signature: null
 	},
 
+	isLoggedIn: false,
+
 	sortOption: ['display_title:asc'],
 	librariesSortedAsc: Ember.computed.sort('librariesSorted', 'sortOption'),
 
@@ -41,7 +43,6 @@ export default Ember.Controller.extend({
 
 	actions: {
 		toggleLang: function() {
-			var set = Ember.set;
 			var application = this.container.lookup('application:main');
 			var local = application.get("locale");
 
@@ -54,6 +55,6 @@ export default Ember.Controller.extend({
 		    Ember.run.later(function() {
 		        location.reload(true);
 		    });
-		}
+		},
 	}
 });

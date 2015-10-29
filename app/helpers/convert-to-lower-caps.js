@@ -2,11 +2,12 @@ import Ember from 'ember';
 
 export function convertToLowerCaps(str) {
 	var temp = str.toString();
+	var lowerCapsStr = null;
 	if ((temp === "Today") || (temp === 'Tomorrow')) {
-		var lowerCapsStr = temp.toLowerCase();
+		 lowerCapsStr = temp.toLowerCase();
 	}
 	else  {
-		var lowerCapsStr = temp;
+		lowerCapsStr = temp;
 	}
 	
 

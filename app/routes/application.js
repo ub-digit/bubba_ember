@@ -4,8 +4,6 @@ export default Ember.Route.extend({
 
 	beforeModel: function() {
 		Ember.$("#ember-app-bubba-cli").addClass("loading");
-
-
 		var application = this.container.lookup('application:main');
 		var lang = application.get("locale");
 		if (!lang) {
@@ -15,7 +13,6 @@ export default Ember.Route.extend({
 	      lang = sessionStorage.getItem('lang');
 	    }
 	    var set = Ember.set;
-		var application = this.container.lookup('application:main');
 		set(application, 'locale', lang);
 	    sessionStorage.setItem('lang', lang);
 
@@ -28,8 +25,6 @@ export default Ember.Route.extend({
 	},
 	model: function() {
 		// get list of libraries
-		var libraryCardnumber = sessionStorage.getItem("librarycardNumber");
-		var password =  sessionStorage.getItem("personalSecurityNumber");
 		return Ember.RSVP.hash({
       		locations:  this.store.find('location'),
     	});
@@ -58,7 +53,18 @@ export default Ember.Route.extend({
 	},
 
 	setupController: function(controller, models) {
+		if (sessionStorage.getItem("librarycardNumber") && sessionStorage.getItem("personalSecurityNumber")) {
+			controller.set("isLoggedIn", true);
+		}
 		controller.set("libraries", models.locations);
 		controller.set("dates", this.generateDates());
+	},
+	actions: {
+		logOut: function() {
+			sessionStorage.removeItem('librarycardNumber');
+			sessionStorage.removeItem('personalSecurityNumber');
+			sessionStorage.removeItem('signature');
+			location.reload();
+		}
 	}
 });

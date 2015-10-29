@@ -65,6 +65,14 @@ export default Ember.Route.extend({
 			sessionStorage.removeItem('personalSecurityNumber');
 			sessionStorage.removeItem('signature');
 			location.reload();
-		}
+		},
+		updateCount: function() {
+			var bookings = this.store.find("booking" ,{username: sessionStorage.getItem("librarycardNumber"), password: sessionStorage.getItem("personalSecurityNumber")})
+			var that = this;
+			bookings.then(function(data) {
+				var count = data.get('length');
+				that.controllerFor("application").set("numberOfBookings", count);
+			})
+		}	
 	}
 });

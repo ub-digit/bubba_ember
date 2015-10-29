@@ -30,5 +30,5 @@ export default Ember.Route.extend(ResetScroll,{
 		model.bookings = bookings;
 		controller.set("model", model);
 
-	}
+	},
 });

@@ -3,15 +3,16 @@ label.ub-select {
   margin: 0;
   padding: 0;
   &:before {
-      font-family: 'FontAwesome';
-      line-height: 1;
-      color: #fff;
-      content: '\f078';
-      position: absolute;
-      z-index: 20;
-      top: 37px;
-      right: 30px;
-      pointer-events: none;
+    font-family: 'FontAwesome';
+    line-height: 1;
+    color: #fff;
+    content: '\f078';
+    position: absolute;
+    z-index: 20;
+    top: 37px;
+    right: 30px;
+    pointer-events: none;
+    speak: none;
   }
 
 }
@@ -29,6 +30,9 @@ select.ub-select {
   -webkit-appearance: none;
   -moz-appearance: none;
   padding: 6px 12px;
+  &::-ms-expand {
+    display: none;
+  }
   .form-control-focus();
   option {
     background-color: #fff;

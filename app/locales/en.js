@@ -56,7 +56,7 @@ export default {
       header: 'Book this room',
       patrionCardNumber: 'GU Card number *',
       patrionCardNumberExample: '3300776403',
-      personalSecurityNumber: 'Personal security number *',
+      personalSecurityNumber: 'Swedish personal identity number *',
       personalSecurityNumberExample: 'yymmddnnnn (10 characters)',
       signature: 'Signature *',
       signatureExample: 'Example: Albert',
@@ -89,7 +89,4 @@ export default {
       cancelBookingSuccess: 'This booking has been cancelled.',
       confirmSuccess: 'This booking has been confirmed',
     }
-
-
-
 };

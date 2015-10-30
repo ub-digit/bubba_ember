@@ -36,12 +36,12 @@
 				{{#if error.pass_unavail_error}}
 					<div class="alert alert-warning" role="alert">
 					  <span class="sr-only">Error:</span>
-					  <i class="fa fa-exclamation-triangle"></i> {{t 'error.passUnavail'}} 
+					  <i class="fa fa-exclamation-triangle"></i> {{t 'error.passUnavail'}}
 					</div>
 					<div class="btn-area form-group">
 						<button class="btn btn-default" {{action 'toggleExpanded'}}>{{t 'closeButton'}}</button>
 					</div>
-					
+
 				{{/if}}
 				{{#if error.pass_limit_error}}
 					<div class="alert alert-danger" role="alert">
@@ -86,16 +86,17 @@
 						{{#if error.auth_error}}
 							<div class="alert alert-danger" role="alert">
 							  <span class="sr-only">Fel:</span>
-							  <i class="fa fa-exclamation-triangle"></i> {{t 'error.checkLoginInformation'}}							
+							  <i class="fa fa-exclamation-triangle"></i> {{t 'error.checkLoginInformation'}}
 							</div>
 						{{/if}}
 						<div class="btn-area form-group">
 							<button id="sumbit-booking-btn" type="submit" {{action 'executeBooking' room.id}} {{bind-attr class=":btn :btn-primary"}}>{{t 'loginForm.bookButton'}}</button>
 						</div>
-						
+						{{#if targetObject.controllers.application.isLoggedIn}}
 						<div class="center-content">
 							<small><a href="javascript:void();" {{action 'logout'}}>{{t 'loginForm.forgetMeLink'}}</a></small>
 						</div>
+						{{/if}}						
 					</form>
 
 				</div>

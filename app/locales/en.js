@@ -25,6 +25,7 @@ export default {
         prompt: 'Select a date'
       }
     },
+    pleaseSelectPromptText: 'Select where and when you wish to book',
     noResultForActiveFilter: 'No rooms available',
 
     dateStrings: {

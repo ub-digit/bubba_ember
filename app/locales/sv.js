@@ -24,6 +24,7 @@ export default {
         prompt: 'Välj dag'
       }
     },
+    pleaseSelectPromptText: 'Välj var och när du vill boka',
     noResultForActiveFilter: 'Inga tillgängliga rum hittades',
 
     dateStrings: {

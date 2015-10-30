@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	needs: ['application', 'home'],
-	isExpandedId: null, 
+	isExpandedId: null,
 
 
 	getSelectedLibraryName: function() {
@@ -11,6 +11,7 @@ export default Ember.Controller.extend({
 
 
 	getDate: function() {
+		var t = this.container.lookup('utils:t');
 		var tempDate = this.get("model.bookings.firstObject.pass_day");
 		var application = this.container.lookup('application:main');
 		var local = application.get("locale");
@@ -18,7 +19,7 @@ export default Ember.Controller.extend({
 			local = application.get('defaultLocale');
 		}
 		var date =	moment(tempDate);
-		var dateStr = date.locale(local).format(application.get("dateFormatString"));
+		var dateStr = date.locale(local).format(t('filter.dateStrings.dateFormatString'));
 		return dateStr;
 	}.property('model.bookings'),
 

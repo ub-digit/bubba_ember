@@ -19,9 +19,9 @@ export default Ember.Route.extend({
 	},
 	afterModel: function() {
 		Ember.$("#ember-app-bubba-cli").removeClass("loading");
-		// update documenttitle 
+		// update documenttitle
 		var t = this.container.lookup('utils:t');
-		document.title = t('header.title'); 
+		document.title = t('header.title');
 	},
 	model: function() {
 		// get list of libraries
@@ -31,16 +31,16 @@ export default Ember.Route.extend({
 	},
 
 	generateDates: function() {
-		var dates = []; 
+		var t = this.container.lookup('utils:t');
+		var dates = [];
 		var application = this.container.lookup('application:main');
 		var local = application.get("locale");
 		if (!local) {
 			local = application.get('defaultLocale');
 		}
 		for (var i = 0; i < 7; i++) {
-			 var date = moment().add(i, 'days');
-			 var dateStr = date.locale(local).format(application.get("dateFormatString"));
-			 var t = this.container.lookup('utils:t');
+			 var date = moment().add(i, 'days');			 
+			 var dateStr = date.locale(local).format(t('filter.dateStrings.dateFormatString'));
 			 if (i === 0) {
 			 	dateStr =  t('filter.dateStrings.today');
 			 }
@@ -73,6 +73,6 @@ export default Ember.Route.extend({
 				var count = data.get('length');
 				that.controllerFor("application").set("numberOfBookings", count);
 			})
-		}	
+		}
 	}
 });

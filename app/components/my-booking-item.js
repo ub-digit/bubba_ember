@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 	needs: ['application'],
-	showConfirmSuccess: false, 
+	showConfirmSuccess: false,
 	getDate: function() {
 		var application = this.container.lookup('application:main');
 		var local = application.get("locale");
@@ -21,9 +21,9 @@ export default Ember.Component.extend({
 			dateStr = t('filter.dateStrings.tomorrow');
 		}
 		else {
-			dateStr = moment(this.get("booking.pass_day")).locale(local).format(application.get("dateFormatString"));
+			dateStr = moment(this.get("booking.pass_day")).locale(local).format(t('filter.dateStrings.dateFormatString'));
 		}
-		
+
 		return dateStr;
 	}.property('booking'),
 
@@ -97,7 +97,7 @@ export default Ember.Component.extend({
 				}
 			};
 			var errorHandler = function() {
-				// hanlde error	
+				// hanlde error
 			};
 			this.store.save('booking', {id: id}, {username: sessionStorage.getItem("librarycardNumber"), password: sessionStorage.getItem("personalSecurityNumber"), cmd:'cancel'}).then(successHandler, errorHandler);
 		},
@@ -117,7 +117,7 @@ export default Ember.Component.extend({
 				          'eventValue' : null
 				        });
 				}
-				
+
 				//that.sendAction('reloadModel', response.id);
 			};
 			var errorHandler = function() {

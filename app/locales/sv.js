@@ -27,6 +27,7 @@ export default {
     noResultForActiveFilter: 'Inga tillgängliga rum hittades',
 
     dateStrings: {
+      dateFormatString: 'dddd D MMMM',
       today: 'idag',
       tomorrow: 'imorgon'
     },

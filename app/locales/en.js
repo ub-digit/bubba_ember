@@ -28,6 +28,7 @@ export default {
     noResultForActiveFilter: 'No rooms available',
 
     dateStrings: {
+      dateFormatString: 'dddd D MMMM',
       today: 'Today',
       tomorrow: 'Tomorrow'
     },

@@ -5,15 +5,15 @@
 			{{room.name}}
 		</div>
 		<div class="room-meta">
-			{{room.seats}} {{t 'room.meta.seats'}}
+			{{room.seats}} {{t 'room.meta.seats'}}{{#if room.has_computer}},{{/if}}
 			{{#if room.has_computer}}
-				, {{t 'room.meta.computer'}}
+				{{t 'room.meta.computer'}}{{#if room.has_whiteboard}},{{/if}}
 			{{/if}}
 			{{#if room.has_whiteboard}}
-				, {{t 'room.meta.whiteboard'}}
+				{{t 'room.meta.whiteboard'}}{{#if room.comment}},{{/if}}
 			{{/if}}
 			{{#if room.comment}}
-				, {{room.comment}}
+				{{room.comment}}
 			{{/if}}
 		</div>
 		<div class="room-availible-intervals">

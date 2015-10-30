@@ -51,6 +51,10 @@ export default Ember.Component.extend({
 		logout: function() {
 			this.sendAction('logOut');
 		},
+
+		updatecount: function() {
+			this.sendAction('updateCount');
+		},
 		
 		toggleExpanded: function() {
 			if (!this.get("room.bookable") && !this.get("isExpanded")) {
@@ -97,14 +101,7 @@ export default Ember.Component.extend({
 				that.set("applicationController.isLoggedIn", true);
 				that.set("room", model);
 				that.set("showReciept", true);
-				var temp = null;
-				if (that.get("applicationController.numberOfBookings")) {
-					temp = that.get("applicationController.numberOfBookings") + 1; 
-				} 
-				else {
-					temp = 1;
-				}
-				that.set("applicationController.numberOfBookings", temp);
+				that.send("updatecount");
 				if (window.dataLayer) {
 			        window.dataLayer.push({
 			          'event' : 'GAEvent',

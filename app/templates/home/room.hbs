@@ -16,15 +16,15 @@
 				{{model.name}}
 			</div>
 			<div class="room-meta">
-				{{model.seats}} {{t 'room.meta.seats'}}
+				{{model.seats}} {{t 'room.meta.seats'}}{{#if model.has_computer}},{{/if}}
 				{{#if model.has_computer}}
-					, {{t 'room.meta.computer'}}
+					 {{t 'room.meta.computer'}}{{#if model.has_whiteboard}},{{/if}}
 				{{/if}}
 				{{#if model.has_whiteboard}}
-					, {{t 'room.meta.whiteboard'}}
+					{{t 'room.meta.whiteboard'}}{{#if model.comment}},{{/if}}
 				{{/if}}
 				{{#if model.comment}}
-					, {{model.comment}}
+					 {{model.comment}}
 				{{/if}}
 			</div>
 			<div class="date">
@@ -39,7 +39,7 @@
 		<ul class="list-bookings accordian-list list-unstyled">
 			{{#each item in model.bookings}}
 				<li>
-					{{booking-item name=model.name room=item isExpandedId=isExpandedId applicationController=controllers.application logOut='logOut'}}
+					{{booking-item name=model.name room=item isExpandedId=isExpandedId applicationController=controllers.application logOut='logOut' updateCount='updateCount'}}
 				</li>
 			{{else}}
 				<p>{{t 'filter.noResultForActiveFilter'}}</p>

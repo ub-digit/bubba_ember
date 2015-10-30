@@ -57,13 +57,12 @@ export default {
       patrionCardNumber: 'GU Card number *',
       patrionCardNumberExample: '3300776403',
       personalSecurityNumber: 'Personal security number *',
-      personalSecurityNumberExample: '7701264975',
-      pleaseUseThisFormat: 'Please use this format 7701264975',
+      personalSecurityNumberExample: 'yymmddnnnn (10 characters)',
       signature: 'Signature *',
-      signatureExample: 'Art course',
+      signatureExample: 'Example: Albert',
       bookButton: 'Book',
       okButton: 'Ok',
-      forgetMeLink: 'Is this not you? Forget user!'
+      forgetMeLink: 'This is not me, clear the details'
     },
 
     myBookings: {
@@ -81,14 +80,14 @@ export default {
       },
     },
     error: {
-      passUnavail: 'This session is no longer available. Someone got to it before you. Try to book another session!',
-      passLimitError: 'A user can take up two sessions within a day, and you have already booked two sessions today.',
-      checkLoginInformation: 'Check your data!',
+      passUnavail: 'This room is no longer available. Someone got to it before you. Try to book another room!',
+      passLimitError: 'You have already booked two rooms today.',
+      checkLoginInformation: 'Check your details!',
     },
     success: {
-      bookSuccess: 'This room has now been booked for you.',
-      cancelBookingSuccess: 'This room has been cancelled.',
-      confirmSuccess: 'This room has now been confirmed',
+      bookSuccess: 'This room has been booked.',
+      cancelBookingSuccess: 'This booking has been cancelled.',
+      confirmSuccess: 'This booking has been confirmed',
     }
 
 

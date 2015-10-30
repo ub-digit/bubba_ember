@@ -4,18 +4,18 @@
 		<form class="login-form">
 			<div class="form-group">
 				<label>{{t 'loginForm.patrionCardNumber'}}</label>
-				{{input type='number' pattern='[\d]*' class="form-control" placeholder=(t 'loginForm.patrionCardNumberExample') value=librarycardNumber}}
+				{{input type='number' pattern='[\d]*' class="form-control" value=librarycardNumber}}
 			</div>
 			<div class="form-group">
 				<label>{{t 'loginForm.personalSecurityNumber'}}</label>
-				{{input type='password' class="form-control" placeholder=(t 'loginForm.personalSecurityNumberExample') value=personalSecurityNumber}}
-				<small>{{t 'loginForm.pleaseUseThisFormat'}}</small>
+				{{input type='password' class="form-control" value=personalSecurityNumber}}
+				<p class="help-block">{{t 'loginForm.personalSecurityNumberExample'}}</p>
 			</div>
 			<div class="form-group">
 				{{#if error}}
 					<div class="alert alert-danger" role="alert">
 					  <span class="sr-only">Fel:</span>
-					  <i class="fa fa-exclamation-triangle"></i> {{t 'error.checkLoginInformation'}}							
+					  <i class="fa fa-exclamation-triangle"></i> {{t 'error.checkLoginInformation'}}
 					</div>
 				{{/if}}
 
@@ -25,4 +25,4 @@
 			</div>
 		</form>
 	</div>
-</div> <!-- row end --> 
+</div> <!-- row end -->

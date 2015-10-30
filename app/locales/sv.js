@@ -56,13 +56,12 @@ export default {
       patrionCardNumber: 'Nummer på GU-kort *',
       patrionCardNumberExample: '3300776403',
       personalSecurityNumber: 'Personnummer *',
-      personalSecurityNumberExample: '7701264975',
-      pleaseUseThisFormat: 'Använd detta format 7701264975',
+      personalSecurityNumberExample: 'ååmmddnnnn (10 tecken)',
       signature: 'Signatur *',
-      signatureExample: 'Konstgruppen',
+      signatureExample: 'Exempel: Albert',
       bookButton: 'Boka',
       okButton: 'OK',
-      forgetMeLink: 'Är detta inte du? Glöm användaren!'
+      forgetMeLink: 'Detta är inte jag, rensa uppgifterna'
     },
 
     myBookings: {
@@ -85,9 +84,9 @@ export default {
       checkLoginInformation: 'Kontrollera uppgifterna!',
     },
     success: {
-      bookSuccess: 'Du har nu bokat det här rummet.',
-      cancelBookingSuccess: 'Du har nu avbokat det här rummet.',
-      confirmSuccess: 'Du har nu kvitterat det här rummet.',
+      bookSuccess: 'Du har bokat rummet.',
+      cancelBookingSuccess: 'Du har avbokat rummet.',
+      confirmSuccess: 'Du har kvitterat rummet.',
     }
 
 

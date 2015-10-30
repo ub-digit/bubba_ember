@@ -72,16 +72,17 @@
 						</div>
 						<div class="form-group">
 							<label>{{t 'loginForm.patrionCardNumber'}}</label>
-							{{input type='number' pattern='[\d]*' class="form-control cardnumber" placeholder=(t 'loginForm.patrionCardNumberExample') value=applicationController.user.librarycardNumber}}
+							{{input type='number' pattern='[\d]*' class="form-control cardnumber" value=applicationController.user.librarycardNumber}}
 						</div>
 						<div class="form-group">
 							<label>{{t 'loginForm.personalSecurityNumber'}}</label>
-							{{input type="password" class="form-control" placeholder=(t 'loginForm.personalSecurityNumberExample') value=applicationController.user.personalSecurityNumber}}
-							<small>{{t 'loginForm.pleaseUseThisFormat'}}</small>
+							{{input type="password" class="form-control" value=applicationController.user.personalSecurityNumber}}
+							<p class="help-block">{{t 'loginForm.personalSecurityNumberExample'}}</p>
 						</div>
 						<div class="form-group">
 							<label>{{t 'loginForm.signature'}}</label>
-							{{input type="text" class="form-control" placeholder=(t 'loginForm.signatureExample') value=applicationController.user.signature}}
+							{{input type="text" class="form-control" value=applicationController.user.signature}}
+							<p class="help-block">{{t 'loginForm.signatureExample'}}</p>
 						</div>
 						{{#if error.auth_error}}
 							<div class="alert alert-danger" role="alert">
@@ -96,7 +97,7 @@
 						<div class="center-content">
 							<small><a href="javascript:void();" {{action 'logout'}}>{{t 'loginForm.forgetMeLink'}}</a></small>
 						</div>
-						{{/if}}						
+						{{/if}}
 					</form>
 
 				</div>

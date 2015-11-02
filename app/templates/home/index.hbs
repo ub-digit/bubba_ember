@@ -35,7 +35,7 @@
 <div class="row">
 	<div class="col-xs-12">
 		{{#unless showPleaseSelectPrompt}}
-			{{list-of-rooms rooms=model selectedDay=selectedDate selectedDateString=getSelectedDateString selectedLibrary=getSelectedLibraryName}}
+			{{list-of-rooms rooms=model.bookingObjects selectedDay=selectedDate selectedDateString=getSelectedDateString selectedLibrary=getSelectedLibraryName}}
 		{{else}}
 			<div class="pleaseSelectPromptText center-content">{{t 'filter.pleaseSelectPromptText'}}</div>
 		{{/unless}}

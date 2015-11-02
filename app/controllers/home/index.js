@@ -6,36 +6,36 @@ export default Ember.Controller.extend({
 	showPleaseSelectPrompt: function() {
 		if ((this.get("selectedLibrary") === "undefined") || (this.get("selectedLibrary") === null) || (this.get("selectedLibrary") === "null")) {
 			return true;
-		}	
+		}
 		else {
 			return false;
 		}
 	}.property('selectedLibrary'),
-	
+
 
 	updateLocalStorage: function() {
 		localStorage.setItem("latestVisited", this.get("selectedLibrary"));
 	}.observes("selectedLibrary"),
 
 	getSelectedLibraryName: function() {
-		var item = this.get("controllers.application").get("librariesSorted").findBy("id", this.get("selectedLibrary"));
+		var item = this.get("controllers.application").get("librariesSorted").findBy("id", this.get("model.selectedLibrary"));
 		if (item) {
 			return item.display_title;
 		}
 		else {
 			return null;
 		}
-	}.property('selectedLibrary'),
+	}.property('model.selectedLibrary'),
 
 	getSelectedDateString: function() {
-		if (this.get("selectedDate")) {
-			var item = this.get("controllers.application").get("dates").findBy("id",this.get("selectedDate"));
+		if (this.get("model.selectedDate")) {
+			var item = this.get("controllers.application").get("dates").findBy("id",this.get("model.selectedDate"));
 			return item.title;
 		}
 		else {
 			return "";
 		}
-	}.property('selectedDate'),
+	}.property('model.selectedDate'),
 
 	postStats: function() {
 		var selectedLibraryId = this.get("selectedLibrary") * 1;

@@ -5,7 +5,7 @@ export default Ember.Route.extend(ResetScroll,{
 	queryParams: {
 		selectedLibrary: { refreshModel: true },
 		selectedDate: { refreshModel: true }
-    },
+	},
 	beforeModel: function() {
 		Ember.$("#ember-app-bubba-cli").addClass("loading");
 	},
@@ -18,25 +18,25 @@ export default Ember.Route.extend(ResetScroll,{
 		if (params.selectedDate && params.selectedLibrary) {
 			filter = {
 				location_id: params.selectedLibrary,
-				day: params.selectedDate 
+				day: params.selectedDate
 			};
-			return this.store.find('booking_object', filter);
+			return Ember.RSVP.hash({
+				selectedLibrary: params.selectedLibrary,
+				selectedDate: params.selectedDate,
+				bookingObjects: this.store.find('booking_object', filter).then(function(result) {
+					return result.sortBy('name');
+				})
+			});
 		}
 		else {
-			
 			this.controllerFor('home.index').set("selectedDate", "0");
 			return null;
-		}		
-	},
-	sortedItems: function(model){
-	        var items = Ember.ArrayProxy.extend(Ember.SortableMixin).create({content: model});
-	        items.set('sortProperties', ['name']);
-	        return items;
+		}
 	},
 
+
 	setupController: function(controller, model) {
-		var sorted =  this.sortedItems(model);
-		controller.set("model", sorted);
+		controller.set("model", model);
 		var latestVisited = null;
 		if (localStorage.getItem("latestVisited")) {
 			latestVisited = localStorage.getItem("latestVisited");

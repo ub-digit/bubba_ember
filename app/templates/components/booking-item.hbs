@@ -1,4 +1,4 @@
-<div {{bind-attr id=room.id}} {{bind-attr class=":booking-item :accordian-item :row room.bookable:bookable:muted"}} {{action 'toggleExpanded'}}>
+<a href="javascript:void(0)" {{bind-attr id=room.id}} {{bind-attr class=":booking-item :accordian-item :row room.bookable:bookable:muted"}} {{action 'toggleExpanded'}}>
 	<div class="col-xs-10">
 		<div class="status">
 			<span {{bind-attr class=":circle room.status"}} title="{{get-status-string room.status}}"></span>
@@ -27,7 +27,7 @@
 			{{/if}}
 		{{/unless}}
 	</div>
-</div>
+</a>
 
 {{#if isExpanded}}
 	<div class="row footer">

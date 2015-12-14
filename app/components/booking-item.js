@@ -2,7 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 	needs: ['application'],
-
+	tagName: 'li', 
+	classNameBindings: ['isExpanded'],
 	error: {
 		'pass_limit_error': false,
 		'auth_error': false,

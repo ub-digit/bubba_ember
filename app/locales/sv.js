@@ -66,7 +66,7 @@ export default {
 
     myBookings: {
       headerMyConfirmableBookings: 'Kan kvitteras',
-      headerMyConfirmedBookings: 'Pågågende och kvitterade',
+      headerMyConfirmedBookings: 'Pågående och kvitterade',
       headerMyBookings: 'Bokningar',
       cancelBookingButton: 'Avboka',
       confirmBookingButton: 'Kvittera',

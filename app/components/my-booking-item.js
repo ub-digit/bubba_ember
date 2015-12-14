@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 	needs: ['application'],
+	tagName: 'li',
+	classNameBindings: ['isExpanded'],
 	showConfirmSuccess: false,
 	getDate: function() {
 		var application = this.container.lookup('application:main');

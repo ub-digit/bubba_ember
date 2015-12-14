@@ -1,7 +1,7 @@
 
 import	myBookingItem from 'bubba-cli/components/my-booking-item';
 
-export default myBookingItem.extend({
+export default myBookingItem.extend({ 
 	getStartTimestamp: function() {
 		var startTime = this.get("booking.pass_start");
 		var startDate = this.get("booking.pass_day");

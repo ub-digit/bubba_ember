@@ -38,9 +38,7 @@
 		<div class="col-xs-12">
 		<ul class="list-bookings accordian-list list-unstyled">
 			{{#each item in model.bookings}}
-				<li>
-					{{booking-item name=model.name room=item isExpandedId=isExpandedId applicationController=controllers.application logOut='logOut' updateCount='updateCount'}}
-				</li>
+				{{booking-item name=model.name room=item isExpandedId=isExpandedId applicationController=controllers.application logOut='logOut' updateCount='updateCount'}}
 			{{else}}
 				<p>{{t 'filter.noResultForActiveFilter'}}</p>
 			{{/each}}

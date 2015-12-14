@@ -1,4 +1,4 @@
-<h2 class="center">{{t 'mainNav.nav2'}}</h2>
+<h2 class="center hidden-xs">{{t 'mainNav.nav2'}}</h2>
 <div id="my-bookings">
 	{{#if modelForConfirm}}
 		<div class="header">	
@@ -6,9 +6,7 @@
 		</div>
 		<ul class="list-unstyled list-of-confirmables">
 		{{#each item in modelForConfirm}}
-			<li>
-				{{my-booking-item-confirmable booking=item libraries=controllers.application.librariesSorted reloadModel='reloadModel'}}
-			</li>
+			{{my-booking-item-confirmable booking=item libraries=controllers.application.librariesSorted reloadModel='reloadModel'}}
 		{{/each}}
 		</ul>
 	{{/if}}
@@ -19,9 +17,8 @@
 		</div>
 		<ul class="list-unstyled list-of-confirmables">
 		{{#each item in modelForAlreadyConfirmed}}
-			<li>
+
 				{{my-booking-item booking=item libraries=controllers.application.librariesSorted reloadModel='reloadModel'}}
-			</li>
 		{{/each}}
 		</ul>
 	{{/if}}

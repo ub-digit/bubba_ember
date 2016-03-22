@@ -113,7 +113,7 @@ nav {
 		padding: 10px 5px;
 		&:first-child {
 			//border-top: 1px solid #ccc;
-    	}
+		}
 
 		#room-component-item {
 
@@ -134,31 +134,31 @@ nav {
 			}
 			.room-availible-intervals {
 				float: left;
-		    	.room-availible-intervals-list {
-		    		float: left;
-		    		li {
-		    			text-align: center;
-		    			width: 25px;
-		    			display: inline-block;
-		    			float:left;
-		    			margin-right: 5px;
-		    			font-size:.6em;
+				.room-availible-intervals-list {
+					float: left;
+					li {
+						text-align: center;
+						width: 25px;
+						display: inline-block;
+						float:left;
+						margin-right: 5px;
+						font-size:.6em;
 
 
-		    			.circle {
+						.circle {
 
-		    				margin: 0 auto;
-		    				margin-bottom: 5px;
-		    				display: block;
-		    				width: 15px;
-		    				height: 15px;
-		    				border-radius: 50%;
-		    				border: none;
-		    			}
+							margin: 0 auto;
+							margin-bottom: 5px;
+							display: block;
+							width: 15px;
+							height: 15px;
+							border-radius: 50%;
+							border: none;
+						}
 
-		    		}
-		    	}
-		    }
+					}
+				}
+			}
 		}
 	}
 }
@@ -205,65 +205,65 @@ nav {
 			}
 
 		}
-    	a.booking-item {
-    		margin-left: 5px;
-    		margin-right: 10px;
-    		display: block;
-	    	.status {
-	    		.circle {
-	    			margin: 0;
-	    		}
-	    		float: left;
-	    		margin-right: 10px;
-	    	}
-	    	.interval {
-	    		float: left;
-	    		font-size: .8em;
-	    		margin-right: 10px;
-	    		color:  @gray-dark;
+		a.booking-item {
+			margin-left: 5px;
+			margin-right: 10px;
+			display: block;
+			.status {
+				.circle {
+					margin: 0;
+				}
+				float: left;
+				margin-right: 10px;
+			}
+			.interval {
+				float: left;
+				font-size: .8em;
+				margin-right: 10px;
+				color:  @gray-dark;
 
-	    	}
-	    	.status-in-text {
-	    		color: #ccc;
-	    		float: left;
-	    		font-size: .8em;
+			}
+			.status-in-text {
+				color: #ccc;
+				float: left;
+				font-size: .8em;
 
-	    	}
+			}
 
-    	}
+		}
 
-    	.footer {
-    		margin-top: 20px;
-    		.header {
-    			text-align: center;
-    			font-weight: bolder;
-    			@media (max-width: @screen-sm-max) {
-    				margin-bottom: 10px;
-    			}
-    		}
+		.footer {
+			margin-top: 20px;
+			.header {
+				text-align: center;
+				font-weight: bolder;
+				@media (max-width: @screen-sm-max) {
+					margin-bottom: 10px;
+				}
+			}
 
-    		.btn-area {
-    			text-align: center;
-	    		.btn {
-	    			width: 200px;
-	    		}
-    		}
+			.btn-area {
+				text-align: center;
+				.btn {
+					width: 200px;
+				}
+			}
 
 
-    	}
+		}
 
 	}
 }
 
 #my-bookings {
-    .btn-area {
-    	margin-bottom: 20px;
-    	margin-top: 20px;
+	.btn-area {
+		margin-bottom: 20px;
+		margin-top: 20px;
 
-    	.btn {
-    		margin-bottom: 10px;
-    	}
-    }
+		.btn {
+			margin-bottom: 10px;
+		}
+	}
 
 	.booking-item {
 		.indicator {
@@ -273,7 +273,7 @@ nav {
 	}
 	.room-info {
 		.status {
-    		margin-top: 3px;
+			margin-top: 3px;
 			float: left;
 			margin-right: 10px;
 		}
@@ -332,7 +332,7 @@ nav {
 			padding: 5px 5px;
 			&:first-child {
 				border-top: 1px solid #ccc;
-		    }
+			}
 		}
 		margin-bottom: 40px;
 		.circle {
@@ -357,21 +357,21 @@ nav {
 		padding: 5px 5px;
 		&:first-child {
 			border-top: 1px solid #ccc;
-    	}
+		}
 		.accordian-item {
 			cursor: pointer;
 			padding:  0;
-	    	.indicator {
-	    		color: @gray-light;
-	    		.fa {
-	    			transition:all 2s ease-in-out;
-	    			&.rotate {
-	    				transform:rotateX(180deg);
-	    			}
-	    		}
-	    	}
+			.indicator {
+				color: @gray-light;
+				.fa {
+					transition:all 2s ease-in-out;
+					&.rotate {
+						transform:rotateX(180deg);
+					}
+				}
+			}
 		}
-    }
+	}
 
 
 }
@@ -401,27 +401,48 @@ nav {
 
 
 .circle {
+	font-family: "FontAwesome";
+	font-size: 17px;
+	display:inline-block;
+	line-height: 1em;
+	width: 17px;
+	height: 17px;
+	text-align: center;
+	vertical-align: top;
 	&.\31 {
-		background: @green;
+		color: @green;
+		&:after {
+			content: "\f111";
+		}
 	}
 	&.\32 {
-		background: @red;
+		color: @red;
+		&:after {
+			content: "\f05e";
+		}
 	}
 	&.\33 {
-		background: @yellow;
+		color: @yellow;
+		&:after {
+			content: "\f06a";
+			//content: "\f0c8";
+		}
 	}
 	&.\34 {
-		background: @red;
+		color: @red;
+		&:after {
+			content: "\f05e";
+		}
 	}
 	&.\35 {
-		background: @red;
+		color: @red;
+		&:after {
+			content: "\f05e";
+		}
 	}
 	margin: 0 auto;
 	margin-bottom: 5px;
-	display: block;
-	width: 15px;
-	height: 15px;
-	border-radius: 50%;
+	//border-radius: 50%;
 	&.large {
 		width: 30px;
 		height: 30px;

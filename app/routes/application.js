@@ -2,19 +2,26 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 
-	beforeModel: function() {
+	beforeModel: function(transition) {
+
 		Ember.$("#ember-app-bubba-cli").addClass("loading");
+
 		var application = this.container.lookup('application:main');
 		var lang = application.get("locale");
+
+		if (!lang) {
+			lang = transition.queryParams.lang;
+		}
 		if (!lang) {
 			lang = application.get('defaultLocale');
 		}
-	    if (sessionStorage.getItem('lang')) {
-	      lang = sessionStorage.getItem('lang');
-	    }
-	    var set = Ember.set;
-		set(application, 'locale', lang);
-	    sessionStorage.setItem('lang', lang);
+		/*
+    if (sessionStorage.getItem('lang')) {
+      lang = sessionStorage.getItem('lang');
+    }
+		*/
+    Ember.set(application, 'locale', lang);
+    //sessionStorage.setItem('lang', lang);
 
 	},
 	afterModel: function() {

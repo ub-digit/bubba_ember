@@ -7,6 +7,9 @@ export default Ember.Controller.extend({
 		signature: null
 	},
 
+	queryParams: ['lang'],
+	lang: 'sv',
+
 	isLoggedIn: false,
 
 	sortOption: ['display_title:asc'],
@@ -21,7 +24,7 @@ export default Ember.Controller.extend({
 		}
 	}.property("bookings"),
 
-	librariesSorted: function() { 
+	librariesSorted: function() {
 		var application = this.container.lookup('application:main');
 		var local = application.get("locale");
 		if (!local) {
@@ -43,18 +46,16 @@ export default Ember.Controller.extend({
 
 	actions: {
 		toggleLang: function() {
-			var application = this.container.lookup('application:main');
-			var local = application.get("locale");
 
-			if (local === "sv") {
-				sessionStorage.setItem('lang', 'en');
+			if (this.get('lang') === "sv") {
+				this.set('lang', 'en');
 			}
 			else {
-				sessionStorage.setItem('lang', 'sv');
+				this.set('lang', 'sv');
 			}
-		    Ember.run.later(function() {
-		        location.reload(true);
-		    });
+	    Ember.run.later(function() {
+	        location.reload(true);
+	    });
 		},
 	}
 });

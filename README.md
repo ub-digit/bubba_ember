@@ -1,5 +1,10 @@
 # Bubba-cli
 
+
+## IMPORTANT will work.
+* node v4.8.7
+* npm v2.15.11
+
 __Description__ 
 
 Mobile-first frontend for Bubba - a small system for booking rooms, computers etc.. 

@@ -24,4 +24,4 @@ tmp
 /libpeerconnection.log
 npm-debug.log
 testem.log
-config/environment.js
+#config/environment.js

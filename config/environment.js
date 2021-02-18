@@ -29,6 +29,8 @@ module.exports = function(environment) {
     ENV.contentSecurityPolicyHeader = 'Disabled-Content-Security-Policy';
   }
   else if (environment === 'staging') {
+    // uncomment below line when testing staging environment locally
+    //ENV.contentSecurityPolicyHeader = 'Disabled-Content-Security-Policy';
     ENV.APP.serviceURL = process.env.SERVICE_HOSTNAME;
   }
   else if (environment === 'lab') {
